@@ -7,6 +7,7 @@ echo "Processing Artifact..."
 
 ProcessDepot ".so"
 ProcessVPK
+ProcessToolAssetInfo
 
 while IFS= read -r -d '' file
 do
