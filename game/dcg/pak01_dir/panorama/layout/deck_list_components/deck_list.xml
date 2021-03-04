@@ -27,6 +27,7 @@
 		</Panel>
 		<Panel id="LibraryListingHeader">
 			<Label class="BuildLibraryHeader" text="#DCG_DeckBuilder_BuildDeckLibraryListHeader"></Label>
+			<Label class="BuildLibraryHeaderDraft" text="#DCG_DeckBuilder_BuildDeckLibraryListHeaderDraft"></Label>
 			<Label class="BuyLibraryHeader" text="#DCG_DeckBuilder_BuyModeLibraryListHeader"></Label>
 			<Label class="SellLibraryHeader" text="#DCG_DeckBuilder_SellModeLibraryListHeader"></Label>
 			<Label class="ExcessQtyLibraryHeader" text="#DCG_DeckBuilder_SellModeExcessLibraryListHeader"></Label>

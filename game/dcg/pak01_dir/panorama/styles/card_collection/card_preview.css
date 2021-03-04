@@ -159,6 +159,11 @@ DCGCardPreview
 	height: 33px;
 }
 
+.PreviewBasicCardLabel
+{
+	opacity: 0;
+}
+
 .HasIncludeCard .PreviewCountLabel, .HasIncludeCard .PreviewIncludeCardLabel, .HasIncludeCard .PreviewBasicCardLabel, .HasIncludeCard .PreviewOwnedLabel,
 {
 	max-width: 140px;
@@ -188,6 +193,23 @@ DCGCardPreview
 	text-overflow: shrink;
 	
 	height: 33px;
+	opacity: 0;
+}
+
+.IsCosmetic .PreviewOwnedLabel
+{
+	opacity: 1;
+}
+
+.IsCosmetic .PreviewTypeGlyphLabelContainerCosmetic
+{
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;	
+	background-image: url("s2r://panorama/images/card_elements/cardtype_border_gold_psd.vtex");
+	padding: 10px 0px 1px 10px;
+	width: 80px;
+	height: 80px;
 }
 
 .PreviewTypeGlyphLabelContainer
@@ -198,6 +220,7 @@ DCGCardPreview
 	background-image: url("s2r://panorama/images/card/blank_circle_deck_builder_psd.vtex");
 	background-size: 100% 100%;
 }
+
 
 .PreviewTypeGlyphLabel
 {
@@ -519,4 +542,27 @@ DCGCardPreview #CloseButtonContainer
 .IsBasicCard .PreviewBasicCardLabel
 {
 	visibility: visible;
+}
+
+#PreviewCollectorEdition
+{
+	visibility: collapse;
+	margin-left: 92px;
+	margin-bottom: 2px;
+	width: 200px;
+}
+
+.IsCosmetic #PreviewCollectorEdition
+{
+	visibility: visible;
+}
+
+#PreviewCollectorEditionText 
+{
+	visibility: visible;
+	color: gradient( linear, 0% 0%, 0% 100%, from( #9A8A54 ), to( #BEAB74) );
+	text-transform: uppercase;
+	font-size: 16px;
+	padding: 3px 4px 0px 4px;
+	border: 1px solid #BEAB74;
 }

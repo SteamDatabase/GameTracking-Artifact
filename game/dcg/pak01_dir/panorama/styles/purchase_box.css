@@ -76,9 +76,10 @@ DCGPurchaseBox
 	transition-timing-function: ease-in-out;
 }
 
-.GCStatusVisible #PackPurchaseRow
+.MarketDisabled #PackPurchaseRow,
+.GCStatusVisible #PackPurchaseRow 
 {
-    visibility: collapse;
+	visibility: collapse;
 }
 
 #MiniItemIcon

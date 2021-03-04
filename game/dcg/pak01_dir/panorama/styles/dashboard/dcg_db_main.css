@@ -183,6 +183,11 @@ DCGDashboard.GCStatusScary #TopBarStatusBar.ShowSpinner #TopBarStatusSpinner {
 	transition-duration: .1s; 
 }
 
+.PrizePlayDisabled #TopBarGradient
+{
+	opacity-mask: url("s2r://panorama/images/dashboard/topbar/topbar_gradient_opacity_mask_short_psd.vtex");
+}
+
 #TopBar.TopBarModePlay #TopBarGradient
 {
 	visibility: visible;
@@ -327,9 +332,10 @@ DCGDashboard.GCStatusScary #TopBarStatusBar.ShowSpinner #TopBarStatusSpinner {
 	transition-duration: 0.24s;
 }
 
-.NoFeaturedEvent.TopBarModeDeckbuilder #TopBar #PlayTopBar_BG
+.PrizePlayDisabled #TopBar.TopBarModeDeckbuilder #PlayTopBar_BG,
+.NoFeaturedEvent.TopBarModeDeckbuilder #TopBar #PlayTopBar_BG 
 {
-	transform:  translatex( 924px);
+	transform: translatex( 924px);
 	transition-property: transform;
 	transition-duration: 0.24s;
 }
@@ -373,11 +379,20 @@ DCGDashboard.GCStatusScary #TopBarStatusBar.ShowSpinner #TopBarStatusSpinner {
 	opacity: 1;
 }
 
-
-
-.NoCompetitive #TopBar.Featured #PlayTopBar_BG
+.MarketDisabled #Packs,
+.MarketDisabled #BuyCards,
+.MarketDisabled #SellCards
 {
-	transform:  translatex( 470px);
+	visibility: collapse;
+}
+
+.PrizePlayDisabled #Competitive
+{
+	visibility: collapse;
+}
+
+.NoCompetitive #TopBar.Featured #PlayTopBar_BG {
+	transform: translatex( 470px);
 }
 
 .TopBarTab
@@ -1590,7 +1605,6 @@ DCGContextMenuManager
 }
 
 
-#Tickets,
 #CardPacks
 {
 	overflow: noclip;
@@ -1606,7 +1620,6 @@ DCGContextMenuManager
 }
 
 .HasUnopenedPacks #CardPacks,
-#Tickets:hover,
 #CardPacks:hover
 {
 	brightness: 1.0;
@@ -1776,8 +1789,7 @@ DCGContextMenuManager
 	background-size: cover;
 }
 
-#CardPacksIcon,
-#TicketsIcon
+#CardPacksIcon
 {
 	height: 40px;
 	width: 40px;
@@ -1811,7 +1823,6 @@ DCGContextMenuManager
 	transition-timing-function: ease-in-out;	
 }
 
-#Tickets:hover #TicketsIcon,
 #CardPacks:hover #CardPacksIcon
 {
 	transform: translateY(-3px);
@@ -1827,32 +1838,28 @@ DCGContextMenuManager
    background-image: url("s2r://panorama/images/main_menu/icon_packs_psd.vtex"); 
 }
 
-#TicketsIcon
+.FreePlayer #EconContainer
 {
-	background-image: url("s2r://panorama/images/tournaments/icon_ticket_psd.vtex");
+	visibility: collapse;
 }
 
-#CardPacksIcon:hover,
-#TicketsIcon:hover
+#CardPacksIcon:hover
 {
 	brightness: 1.0;
 }
 
-#TicketsCount,
 #CardPacksCount
 {
 	visibility: collapse;
 	margin-right: 10px;
 }
 
-.HasEventTickets #TicketsCount,
 .HasUnopenedPacks #CardPacksCount
 {
 	visibility: visible;
 }
 
-.UnopenedPackCountChanged #CardPacksCount,
-.EventTicketsCountChanged #TicketsCount
+.UnopenedPackCountChanged #CardPacksCount
 {
 	animation-name: flash-numbers;
 	animation-timing-function: ease-in-out;

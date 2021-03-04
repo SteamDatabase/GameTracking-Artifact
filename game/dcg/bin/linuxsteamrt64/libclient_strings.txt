@@ -4529,7 +4529,6 @@ $tK
 14CEntitySpawnerI6C_BeamE
 14CEntitySpawnerI8C_EnvSkyE
 14CExampleEffect
-14CExtraMsgBlock
 14CGCMsgGetIPASN
 14CGCMsgSQLStats
 14CGameAppSystemI14ISource2ClientLi0EE
@@ -4798,7 +4797,7 @@ $tK
 163
 16384
 164
-1643
+1641
 165
 166
 167
@@ -8570,7 +8569,7 @@ $tK
 58CScriptConfig_Set01_kOglodiCatapult_GENERIC_TRIGGER_SCRIPT
 58CWorkshop_GetItemDailyRevenue_Response_CountryDailyRevenue
 58GameToolEventDestroyAllEntitiesToolEvent_tHookupGameSystem
-592
+599
 59CMsgGCToGCGrantAccountRolledItems_Item_AdditionalAuditEntry
 59CProtoItemSocket_AssetModifier_DESERIALIZE_FROM_STRING_ONLY
 59CScriptConfig_Set00_kDefaultScripts_POST_SHOP_ITEM_PURCHASE
@@ -8603,7 +8602,6 @@ $tK
 600
 600.0
 600.0f
-607
 60CMsgEconPlayerStrangeCountAdjustment_CStrangeCountAdjustment
 60CScriptConfig_Set00_kDefaultScripts_UPDATE_OBJECT_ATTRIBUTES
 60CScriptConfig_Set01_kActivateHornoftheAlpha_CARD_PLAY_SCRIPT
@@ -8620,6 +8618,7 @@ $tK
 60CScriptConfig_Set01_kUnearthedSecrets_GENERIC_TRIGGER_SCRIPT
 60CWorkshop_SetItemPaymentRules_Request_PartnerItemPaymentRule
 60GameToolEventToolEvent_GetEntityInfoResult_tHookupGameSystem
+614
 61CScriptConfig_Set00_kDefaultScripts_EXPORT_CARD_SET_TO_IMAGES
 61CScriptConfig_Set00_kDefaultScripts_FLOP_DEPLOYMENT_TO_COMBAT
 61CScriptConfig_Set01_kActivateAghanimsSanctum_CARD_PLAY_SCRIPT
@@ -14060,7 +14059,6 @@ ConstraintSlave_t
 ConstraintTarget_t
 ConstraintType_t
 ConstructedMMR
-ConstructedMode
 Consumable Shop
 ConsumableFilter
 Contacts: %d (%d)
@@ -14808,7 +14806,6 @@ DCGShowOpponentsDeck
 DCGShowPackTooltip
 DCGShowPlayCarousel
 DCGShowPlayCasualCarousel
-DCGShowPlayCompetitiveCarousel
 DCGShowPlayFeaturedCarousel
 DCGShowPlayPage
 DCGShowPlaySocialCarousel
@@ -16645,6 +16642,7 @@ Failed to parse %s
 Failed to parse and set new panel event for %s="%s"
 Failed to parse channel info.
 Failed to parse components block in dynamic recipe
+Failed to parse the encoded bytes for player %d collection (%u bytes)
 Failed to parse the encoded bytes for player %d deck (%u bytes), marking deck as invalid
 Failed to precache script entity %s of type %s: script entity instance is null
 Failed to read %d bytes
@@ -16948,6 +16946,7 @@ FreeDraftGauntlet
 FreeForAllAutoAdvanceAfter
 FreeForAllMaxGamesPerPlayer
 FreeForAllViewContainer
+FreePlayer
 Freed EMS handle %u
 Freed XMS handle %u
 Frees the specified particle index
@@ -16972,6 +16971,7 @@ FriendsOnlyBeacon
 FullBright
 FullInfoDeckList
 FullObserverMove
+FullOwnership
 FullTossMoveBaseVelocity
 FullTossMovePreGravity
 FullTossMovePush
@@ -18356,6 +18356,7 @@ IsCart
 IsClosed
 IsClosing
 IsCombatLane
+IsCosmetic
 IsCreature
 IsCreep
 IsCreepDeck
@@ -18375,6 +18376,7 @@ IsDeployment
 IsDisarmed
 IsDisconnected
 IsDockedOnHeroButton
+IsDraft
 IsDragPreview
 IsDraggable
 IsDraggingCard
@@ -18772,7 +18774,6 @@ LightmapUVW
 Lightning Strike
 LightningEffect
 Limbu
-LimitedMode
 LimitedStageToggleSortBy
 Limits the number of visible tracers per frame
 Line %d at "%s":
@@ -19123,6 +19124,7 @@ MarkSurroundingBoundsDirty
 MarkerNotValid
 Markers
 MarketDataUpdated
+MarketDisabled
 MarketPricesVisible
 MarketplaceDisabled
 Marrowfell Brawler
@@ -20616,6 +20618,7 @@ NonTopoComplex
 NonTopoComplexPack4Bits
 NonTopoPenultimatePluseOne
 None given.
+NoneAvailable
 Normalize3ComponentVectorInAttributes
 Normalized3x3SobelEdgeFilterFrom
 Not Enough Mana
@@ -21359,6 +21362,7 @@ PagePanelUp
 PageScroll
 PageUp
 PageVisible
+PaidPlayer
 Paint Effect
 Paint Performance
 PaintDirtied
@@ -21397,7 +21401,6 @@ ParseEXRHeaderFromMemory( %s ) failed! Error message: %s
 ParseEXRHeaderFromMemory() failed! Error message: %s
 ParseFromString failed
 ParserResponse
-PartialOwnership
 ParticipantList
 Particle Event: %d
 Particle Performance Metric : %u
@@ -21968,6 +21971,7 @@ PrivateLobbyOpponentName
 PrivateLobbySetReady
 PrivateLobbySetVisibleDecks
 PrivateLobbyShareDeck
+PrizePlayDisabled
 ProPlayerBeta
 Probably failed to set object type (%d) on the server/client.
 ProbablyUnlocalizedText
@@ -28755,6 +28759,7 @@ dcg_catalogue_referenced_card_offset_x
 dcg_catalogue_referenced_card_rotation
 dcg_chat_allow_global
 dcg_client_dump_template
+dcg_client_ignores_card_ownership
 dcg_coin_info
 dcg_combat_lane_info
 dcg_composite_rule_state_entity
@@ -29444,7 +29449,6 @@ eLogicalHandType
 ePlayContextCasual_FreeConstructed
 ePlayContextCasual_FreeDraft
 ePlayContextCasual_OnlineMatch
-ePlayContextCompetitive_DynamicGauntlet
 ePlayContextFeatured_CallToArms
 ePlayContextSocial_ChallengeFriend
 ePlayContextSocial_ChallengeGroup
@@ -35137,13 +35141,17 @@ models/board/dcg_board_right_top_bot.vmdl
 models/board/dcg_board_skeleton.vmdl
 models/camera/dcg_camera.vmdl
 models/card/ability_model.vmdl
+models/card/ability_model_gold.vmdl
 models/card/ability_shadow.vmdl
 models/card/card.vmdl
 models/card/card_armor.vmdl
+models/card/card_armor_gold.vmdl
 models/card/card_attachment_blank.vmdl
 models/card/card_attack.vmdl
+models/card/card_attack_gold.vmdl
 models/card/card_combatarrow.vmdl
 models/card/card_health.vmdl
+models/card/card_health_gold.vmdl
 models/card/card_icon_bounty.vmdl
 models/card/card_icon_modifier.vmdl
 models/card/card_incoming_damage.vmdl
@@ -35173,6 +35181,9 @@ models/card/wide_lane_ui_card.vmdl
 models/character/card_courier/imp/card_courier_imp.vmdl
 models/effects/deck_edge_blur.vmdl
 models/error.vmdl
+models/gamebox/improvement/improvement_active_gold.vmdl
+models/gamebox/improvement/improvement_continuous_gold.vmdl
+models/gamebox/improvement/improvement_trigger_gold.vmdl
 models/hud/hud_inspect_background.vmdl
 models/particle/screen/eog/eog_panorama.vmdl
 models/props_character/card_courier/imp/dcg_imp_broom.vmdl
@@ -39606,6 +39617,7 @@ std::__detail::_Prime_rehash_policy::_M_need_rehash(unsigned long, unsigned long
 std::__detail::_Prime_rehash_policy::_M_next_bkt(unsigned long) const
 std::__detail::_RegexTranslator<std::regex_traits<char>, false, true>::_M_transform_impl(char, std::integral_constant<bool, true>) const
 std::__detail::_RegexTranslator<std::regex_traits<char>, true, true>::_M_transform_impl(char, std::integral_constant<bool, true>) const
+std::__detail::_RegexTranslator<std::regex_traits<char>, true, true>::_M_translate(char) const
 std::__detail::_Scanner<char>::_M_advance()
 std::__detail::_Scanner<char>::_M_eat_class(char)
 std::__detail::_Scanner<char>::_M_eat_escape_awk()

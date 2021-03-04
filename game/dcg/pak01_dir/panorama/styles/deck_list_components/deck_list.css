@@ -508,13 +508,15 @@ DeckListCardPanel.Hidden.IsDimmed, DeckListCardPanel.IsDimmed, .IsUnlimitedColle
 .BuyLibraryHeader,
 .SellLibraryHeader,
 .ExcessQtyLibraryHeader,
+.BuildLibraryHeaderDraft,
 .IsSellCardsMode.IsShowExcessMode .SellLibraryHeader,
 .IsRecycleCardsMode.IsShowExcessMode .SellLibraryHeader
 {
     visibility:collapse;
 }
 
-.IsBuildDecksMode .BuildLibraryHeader,
+.IsBuildDecksMode.IsDraft .BuildLibraryHeaderDraft,
+.IsBuildDecksMode:not(.IsDraft) .BuildLibraryHeader,
 .IsPurchaseCardsMode.IsInBuyToCompleteSetMode .BuyLibraryHeader,
 .IsSellCardsMode .SellLibraryHeader,
 .IsRecycleCardsMode .SellLibraryHeader,

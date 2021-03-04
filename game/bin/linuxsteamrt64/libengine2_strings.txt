@@ -959,6 +959,7 @@ $tI
 00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899
 0123456789ABCDEF
 0123456789abcdef
+01:16:33
 0: Force z prepass off. 1: Force on. -1: Don't force
 0: Use normals reconstructed from depth. 1: Output correct normals in z prepass.
 0=Off, 1=Surface Wireframe, 2=Transparent Wireframe
@@ -1942,7 +1943,6 @@ $tI
 22IUserInfoChangeService
 22SerializedNetAddress_t
 2317
-23:34:25
 23CBaseGameUIInputHandler
 23CBidirMsg_RelayPacket_t
 23CBoundedCvar_UpdateRate
@@ -4098,6 +4098,7 @@ DebugShowZPrepassNormals
 DebugTextureInfo001
 DebugVisualizerMgr
 Dec
+Dec 18 2020
 Decals
 DeclareCurrentThreadIsMainThread
 Decompression Error
@@ -5611,7 +5612,6 @@ JPEG datastream contains no image
 JPEG parameter struct mismatch: library thinks size is %u, caller expects %u
 JPEGMEM
 Jan
-Jan 23 2019
 Javanese
 Joint Indices (%d) Out Of Range for SINT16: Skinning will not work !
 Joint Indices (%d) Out Of Range for UINT10: Skinning will not work !

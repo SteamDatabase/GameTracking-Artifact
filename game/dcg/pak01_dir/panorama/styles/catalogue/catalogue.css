@@ -34,7 +34,6 @@ Catalogue
 	background-position: center;
 }
 
-
 .QuitPanel
 {
 	width: 72px;
@@ -3092,6 +3091,7 @@ flow-children: none;
 	tooltip-body-position: 50%;
 }
 
+
 // the price is known label starts invisible, and made visible if we know the price
 #PurchaseUnownedCardsButton Label.PriceIsKnown
 {
@@ -3114,13 +3114,19 @@ flow-children: none;
 	visibility: collapse;
 }
 
-.HasUnownedCards.IsBuildDecksMode #PurchaseUnownedCardsButton
+.HasUnownedCards.IsBuildDecksMode #PurchaseUnownedCardsButton 
 {
 	visibility: visible;
 }
 
+// Disabled market overrides button visibility
+.MarketDisabled .UnownedPriceIsKnown #PurchaseUnownedCardsButton 
+{
+	visibility: collapse;
+}
+
 .UserIsMarketRestricted .BulkBuySellButton,
-.MarketplaceDisabled .BulkBuySellButton
+.MarketplaceDisabled .BulkBuySellButton 
 {
 	background-color: gradient( linear, 0% 0%, 0% 100%, from( uiDarkGrey ), to( uiLightGrey) );
 }

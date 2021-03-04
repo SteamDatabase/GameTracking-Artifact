@@ -24,11 +24,16 @@
       <Panel id="PreviewRegion">
 
         <Panel class="PreviewInformationRegion">
-          <Panel class="PreviewTitleContainer">
-		  
-						<Panel class="PreviewTypeGlyphLabelContainer">
-							<Label class="PreviewTypeGlyphLabel" text="{s:cardTypeGlyph}" html="true"/>
-						</Panel>
+          <Panel id="PreviewCollectorEdition">
+            <Label id="PreviewCollectorEditionText" text="#DCG_DeckBuilder_CollectorEdition"/>
+          </Panel>
+        
+          <Panel class="PreviewTitleContainer">		  
+            <Panel class="PreviewTypeGlyphLabelContainerCosmetic">
+              <Panel class="PreviewTypeGlyphLabelContainer">
+                <Label class="PreviewTypeGlyphLabel" text="{s:cardTypeGlyph}" html="true"/>
+              </Panel>
+            </Panel>              
 			
             <Panel class="PreviewTextContainer">
               <Panel class="PreviewTitleTopRow">

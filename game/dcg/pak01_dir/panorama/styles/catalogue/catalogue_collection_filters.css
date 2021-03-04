@@ -461,8 +461,7 @@ Label.FilterButtonGlyph.Active
 .Search
 {
 	vertical-align: top;
-	horizontal-align: right;
-	
+    horizontal-align: right;	
 }
 
 .TypeFilters
@@ -803,3 +802,7 @@ DropDown Label
     visibility: collapse;
 }
 
+.UnlimitedCollectionToggle
+{
+    visibility: collapse;
+}

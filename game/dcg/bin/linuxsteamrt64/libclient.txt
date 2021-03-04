@@ -1820,6 +1820,7 @@
  W std::__detail::_NFA<std::regex_traits<char> >::_M_insert_subexpr_end()
  W std::__detail::_RegexTranslator<std::regex_traits<char>, false, true>::_M_transform_impl(char, std::integral_constant<bool, true>) const
  W std::__detail::_RegexTranslator<std::regex_traits<char>, true, true>::_M_transform_impl(char, std::integral_constant<bool, true>) const
+ W std::__detail::_RegexTranslator<std::regex_traits<char>, true, true>::_M_translate(char) const
  W std::__detail::_Scanner<char>::_M_advance()
  W std::__detail::_Scanner<char>::_M_eat_class(char)
  W std::__detail::_Scanner<char>::_M_eat_escape_awk()

@@ -71,10 +71,6 @@
 					<Label class="TopBarTabLabel" text="#DCG_MainMenu_PlaySocial"/>
 				</Button>
 
-				<Button class="TopBarTab HideNoCompetitive" id="Competitive" onactivate="DCGShowPlayCompetitiveCarousel() PlaySoundEffect( DCG_UI.Shared_Select_Gauntlets )" onmouseover="PlaySoundEffect( DCG_UI.Shared_Rollover_Gauntlets )">
-					<Label class="TopBarTabLabel" text="#DCG_MainMenu_PlayCompetitive"/>
-				</Button>
-
 				<Button class="TopBarTab" id="Collection" onactivate="DCGOpenDeckBuilder()  CatalogueBuildDeck()  PlaySoundEffect( DCG_UI.Shared_Select_Collection )" onmouseover="PlaySoundEffect( DCG_UI.Shared_Rollover_Collection )">
 					<Label class="TopBarTabLabel" text="#DCG_MainMenu_PlayCollection"/>
 				</Button>
@@ -87,12 +83,8 @@
 		</Panel>
 		<Panel id="SecondaryBar" hittest="false">
 			<Panel id="SecondaryBarGradient" hittest="false"/>
-			
-
 			<Panel id="SecondaryBarContainer" class="SecondaryBarNavigation" hittest="false">
-
-				<Button class="SecondaryBarTab" id="Packs" onactivate="DCGShowOpenPacksPage()">
-					
+				<Button class="SecondaryBarTab" id="Packs" onactivate="DCGShowOpenPacksPage()">				
 					<Label class="SecondaryBarTabLabel" text="#DCG_DeckBuilder_Packs" />
 				</Button>
 				<Button class="SecondaryBarTab" id="BuildDeck" onactivate="DCGOpenDeckBuilder() CatalogueBuildDeck()">
@@ -107,7 +99,6 @@
 				<Button class="SecondaryBarTab" id="RecycleCards" onactivate="DCGOpenDeckBuilder() CatalogueRecycleCards()">
 					<Label class="SecondaryBarTabLabel" text="#DCG_DeckBuilder_RecycleCards" />
 				</Button>
-
 			</Panel>
 		</Panel>
 		<DCGScenePanel id="MiniProfileGlow" camera="camera" map="scenes/mainmenu/mainmenu_miniprofile" hittest="false" require-composition-layer="true" light="model_light" particleonly="true"  renderdeferred="true" deferredalpha="false"  antialias="true"/>

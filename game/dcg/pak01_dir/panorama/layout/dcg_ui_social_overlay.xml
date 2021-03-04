@@ -35,11 +35,6 @@
 
 			<Panel id="EconContainer" class="LeftRightFlow">
 				<Panel class="Separator"/>
-				<Panel id="Tickets" onactivate="DCGShowEconItemInfoPopup( 500 ) PlaySoundEffect( DCG_UI.MainMenu_Select )" onmouseover="UIShowTextTooltip( #DCG_EventTickets_Tooltip ) PlaySoundEffect( DCG_UI.MainMenu_Rollover )"
-					onmouseout= "UIHideTextTooltip()">
-					<Panel id="TicketsIcon"/>
-					<Label id="TicketsCount" text="{d:event_tickets}" class="SocialNumberLabel"/>
-				</Panel>
 				<Panel id="CardPacks" onactivate="DCGShowOpenPacksPage() PlaySoundEffect( DCG_UI.MainMenu_Select )" onmouseover="UIShowTextTooltip( #DCG_UnopenedPacks_Tooltip ) PlaySoundEffect( DCG_UI.MainMenu_Rollover )" onmouseout="UIHideTextTooltip()">
 					<Panel id="CardPacksIcon">
 						<DCGScenePanel id="UnopenedPacks" camera="camera" map="scenes/mainmenu/mainmenu_unopened_packs" hittest="false" require-composition-layer="true" light="model_light" particleonly="true"  renderdeferred="true" deferredalpha="false"  antialias="true"/>		

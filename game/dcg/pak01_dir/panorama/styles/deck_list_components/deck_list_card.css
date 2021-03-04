@@ -30,7 +30,7 @@ DeckListCardPanel
 {
 	height: 100%;
 	width: 4px;
-	background-color: gradient( linear, 0% 0%, 0% 100%, from( #5be158 ), to( #36a170) );
+	background-color: gradient( linear, 0% 0%, 0% 100%, from( #9A8A54 ), to( #BEAB74) );
 	//box-shadow: fill #1d7a28 0px 0px 10px 0px;
 	horizontal-align: right;
 	opacity: 0;
@@ -38,9 +38,19 @@ DeckListCardPanel
 	transition-duration: .3s;
 }
 
-.PartialOwnership #PartiallyOwnedBar
+.FullOwnership #PartiallyOwnedBar
 {
 	opacity: 1; 
+}
+
+#LibraryListing #PartiallyOwnedBar
+{
+	opacity: 0;
+}
+
+.IsRecycleCardsMode #LibraryListing .NoneAvailable
+{
+	visibility: collapse;
 }
 
 DeckListCardPanel.Hidden
@@ -194,29 +204,29 @@ DeckListCardPanel.IsLocked #CardArtImage
 	//border: 3px solid #ffffffaa;
 }
 
-#LibraryListing DeckListCardPanel.IsDimmed #CardArtContainer
+#LibraryListing DeckListCardPanel.MaxInDeck #CardArtContainer
 {
 	saturation: .7;
 }
 
-#LibraryListing DeckListCardPanel.IsDimmed.IsLocked #CardArtContainer
+#LibraryListing DeckListCardPanel.MaxInDeck.IsLocked #CardArtContainer
 {
 	saturation: 1;
 }
 
-#LibraryListing DeckListCardPanel.IsDimmed:hover #CardArtContainer
+#LibraryListing DeckListCardPanel.MaxInDeck:hover #CardArtContainer
 {
 	saturation: 1;
 }
 
-#LibraryListing DeckListCardPanel.IsDimmed #LockedCardBevel
+#LibraryListing DeckListCardPanel.MaxInDeck #LockedCardBevel
 {
 	brightness: 2;
 	opacity: 1;
 }
 
 
-#LibraryListing DeckListCardPanel.IsDimmed:hover, #LibraryListing  DeckListCardPanel.IsHovered.IsDimmed
+#LibraryListing DeckListCardPanel.MaxInDeck:hover, #LibraryListing  DeckListCardPanel.IsHovered.MaxInDeck
 {
 	brightness: .6;
 	opacity: 1;
@@ -225,7 +235,7 @@ DeckListCardPanel.IsLocked #CardArtImage
 	background-color: black; 
 }
 
-#LibraryListing DeckListCardPanel.IsDimmed.IsLocked, #LibraryListing  DeckListCardPanel.IsLocked.IsDimmed
+#LibraryListing DeckListCardPanel.MaxInDeck.IsLocked, #LibraryListing  DeckListCardPanel.IsLocked.MaxInDeck
 {
 	brightness: .6;
 	opacity: 1;
@@ -528,6 +538,11 @@ DCGDeckList #DeckListCardsContainer:vscroll DeckListCardPanel
 	visibility: collapse;
 }
 
+#LibraryListing DeckListCardPanel.NoneAvailable #AdjustableInstancesLabel
+{
+	visibility: collapse;
+}
+
 
 .DisplayMaxAllowed #AdjustableInstancesLabelOfAllowed
 {
@@ -795,7 +810,7 @@ DeckListCardPanel.Blue
 	transition-property: none;
 }
 
-#LibraryListing DeckListCardPanel.IsDimmed
+#LibraryListing DeckListCardPanel.MaxInDeck
 {
 	visibility: collapse;
 	opacity: 0;
@@ -804,7 +819,7 @@ DeckListCardPanel.Blue
 
 }
 
-#LibraryListing DeckListCardPanel.IsDimmed.IsLocked
+#LibraryListing DeckListCardPanel.MaxInDeck.IsLocked
 {
 	opacity: 0.5;
 }
@@ -822,7 +837,7 @@ DeckListCardPanel.Blue
 	transform: translateX(0px);
 }
 
-#LibraryListing.IsUnlimitedCollection DeckListCardPanel.IsDimmed
+#LibraryListing.IsUnlimitedCollection DeckListCardPanel.MaxInDeck
 {
 	opacity: 0.5;
 	visibility: visible;
@@ -830,7 +845,7 @@ DeckListCardPanel.Blue
 	height: 45px;
 }
 
-#LibraryListing.IsUnlimitedCollection DeckListCardPanel.IsDimmed.IsLocked
+#LibraryListing.IsUnlimitedCollection DeckListCardPanel.MaxInDeck.IsLocked
 {
 	opacity: 0.5;
 	visibility: visible;
@@ -838,7 +853,7 @@ DeckListCardPanel.Blue
 	height: 45px;
 }
 
-#LibraryListing.IsUnlimitedCollection DeckListCardPanel.IsDimmed.IsLocked.Hidden
+#LibraryListing.IsUnlimitedCollection DeckListCardPanel.MaxInDeck.IsLocked.Hidden
 {
 	visibility: collapse;
 }

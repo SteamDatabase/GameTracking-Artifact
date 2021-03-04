@@ -75,8 +75,7 @@
 						<Panel class="DeckTabBody">
 							<Panel id="PreviewBackground">
 								<Panel class="PreviewBackgroundContainer">
-
-									<Panel id="PreviewRegion">
+									<Panel id="PreviewRegion">									
 										<DCGCardPreview id="CardPreviewContainer" removeclosebutton="true" />
 									</Panel>
 								</Panel>

@@ -1932,7 +1932,6 @@ $tI
 14CEnvSoundscape
 14CEnvTimeOfDay2
 14CEnvWindShared
-14CExtraMsgBlock
 14CFilterContext
 14CFlexExpresser
 14CFogController
@@ -9579,6 +9578,7 @@ Failed to map from %s to game-path
 Failed to open file
 Failed to parse components block in dynamic recipe
 Failed to parse protobuf data
+Failed to parse the encoded bytes for player %d collection (%u bytes)
 Failed to parse the encoded bytes for player %d deck (%u bytes), marking deck as invalid
 Failed to play server side instructor hint: no player specified for hint
 Failed to precache script entity %s of type %s: script entity instance is null
@@ -17658,6 +17658,7 @@ dcg_ai_auto_play
 dcg_ai_force_beginner
 dcg_ai_force_play_action
 dcg_ai_wait_for_animations
+dcg_client_ignores_card_ownership
 dcg_deck_validator_card_set_weights
 dcg_dump_server_combat_log
 dcg_enable_achievement_tracking

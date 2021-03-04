@@ -7,7 +7,9 @@
 	<Panel class="CardIconAndFactionContainer">
 		<Panel class="CardIconContainer" onmouseover="DCGShowInspectTypeTooltip()" onmouseout="DCGHideInspectTypeTooltip()">
 
-			<Panel id="CardType"/>
+			<Panel id="CardTypeContainer">
+				<Panel id="CardType"/>
+			</Panel>
 
 		</Panel>
 		<Panel id="CardFaction" />
