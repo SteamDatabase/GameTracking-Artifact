@@ -1189,7 +1189,7 @@
 	"DCG_Tooltips_BaseAbility"				"Habilidad básica"
 	"DCG_Tooltips_Description"				"Descripción:"
 	"DCG_Tooltips_Notes"					"Notas:"
-	"DCG_Tooltips_ShopHoldButton"			"Renueva cada puesto de objetos por 1 de oro."
+	"DCG_Tooltips_ShopHoldButton"			"Reserva el artículo de la tienda secreta hasta la próxima fase de compra, a cambio de 1 de oro"
 
 	"DCG_Tooltips_CombatModifiers"			"Habilidades de combate"
 
@@ -1813,7 +1813,7 @@
 	"DCG_Hud_LastCard_SecondTarget"								"<span class=\"TargetText\">Segundo objetivo:</span>"
 	"DCG_Hud_LastCard_LaneTarget"								"<span class=\"TargetText\">Senda objetivo:</span> senda {i:target_lane}"
 	"DCG_Hud_LastCard_DiscardedCard"							"<span class=\"TargetText\">Carta descartada:</span> {s:discarded_card}`"
-	"DCG_Hud_Initiative"										"Iniciativa: El jugador con la iniciativa al inicio de ronda tiene el primer turno."
+	"DCG_Hud_Initiative"										"Iniciativa"
 	"DCG_HUD_SteamChat"											"Enviar chat de Steam"
 	"DCG_HUD_Menu"												"Menú"
 	"DCG_HUD_HandSort"											"Orden de la mano"
@@ -2044,7 +2044,7 @@
 	"DCG_Settings_Reset"						"Restablecer"
 	"DCG_Settings_ResetTraining"				"Restablecer entrenamiento"
 	"DCG_Settings_Credits"						"Créditos"
-	"DCG_CardInfo_SubtitleUnitSeech"			"Subtítulos de diálogos de unidades"
+	"DCG_CardInfo_SubtitleUnitSeech"			"Subtitular diálogo de unidades"
 	"DCG_CardInfo_Lore"							"Historia"
 	"DCG_CardInfo_Lore_Play"					"Reproducir"
 	"DCG_CardInfo_Lore_Stop"					"Detener"

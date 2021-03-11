@@ -2708,7 +2708,6 @@ $tK
 %s_weak
 %sclassname='%s'
 %sd/
-%sd/%s
 %sdeathskullschange
 %sfemale%s
 %smale%s
@@ -12120,6 +12119,7 @@ CDotaCardGame::OnShopAndFlopEnd( turn=%d )
 CDotaCardGame::OnTurnBegin(turn=%d)
 CDotaCardGame::OnTurnEnd(turn=%d)
 CDotaCardGame::PlayerConnectionStatusChanged DCG_GAME_PHASE_PREGAME, and all players connected
+CDotaCardGameInstance::OnDisconnected - Disconnected before game end!
 CDotaCardGameInstance::OnDisconnected - game is over
 CDotaCardGameInstance::OnLeaveMatchConfirmed
 CDotaQuadRenderer

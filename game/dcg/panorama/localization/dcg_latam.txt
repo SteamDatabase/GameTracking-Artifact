@@ -1189,7 +1189,7 @@
 	"DCG_Tooltips_BaseAbility"				"Habilidad básica"
 	"DCG_Tooltips_Description"				"Descripción:"
 	"DCG_Tooltips_Notes"					"Notas:"
-	"DCG_Tooltips_ShopHoldButton"			"Renueva cada espacio de objetos por 1 de oro."
+	"DCG_Tooltips_ShopHoldButton"			"Reserva el artículo de la tienda secreta hasta la próxima fase de compra, a cambio de 1 de oro."
 
 	"DCG_Tooltips_CombatModifiers"			"Habilidades de combate"
 
@@ -2044,7 +2044,7 @@
 	"DCG_Settings_Reset"						"Restablecer"
 	"DCG_Settings_ResetTraining"				"Restablecer entrenamiento"
 	"DCG_Settings_Credits"						"Créditos"
-	"DCG_CardInfo_SubtitleUnitSeech"			"Subtítulos de diálogo de unidades"
+	"DCG_CardInfo_SubtitleUnitSeech"			"Subtitular diálogo de unidades"
 	"DCG_CardInfo_Lore"							"Historia"
 	"DCG_CardInfo_Lore_Play"					"Reproducir"
 	"DCG_CardInfo_Lore_Stop"					"Detener"
