@@ -151,7 +151,6 @@
  RegisterGlobalObject
  RegisterStringToken
  SetAssertionCallback
- SteamAPI_GetHSteamPipe
  SteamAPI_GetHSteamUser
  SteamAPI_Init
  SteamAPI_RegisterCallResult
@@ -164,7 +163,8 @@
  SteamGameServer_RunCallbacks
  SteamInternal_ContextInit
  SteamInternal_CreateInterface
- SteamNetworkingSockets
+ SteamInternal_FindOrCreateGameServerInterface
+ SteamInternal_FindOrCreateUserInterface
  T BinaryProperties_GetValue
  T CreateInterface
  T GetResourceManifestCount

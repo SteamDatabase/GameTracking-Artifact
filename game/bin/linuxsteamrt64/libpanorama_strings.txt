@@ -602,7 +602,6 @@ $tI
 0123456789
 0123456789ABCDEF
 0123456789abcdef
-01:08:23
 0g*
 0x%016llX
 0x%p
@@ -660,6 +659,7 @@ $tI
 16CMemberFunctor11IP13CSOAContainerMS0_FviiiiPKS0_iiiiiPKfEiiiiS3_iiiiiS5_12CRefCounted1I8CFunctor20CRefCountServiceBaseILb1E6CRefMTEE18CFuncMemPolicyNoneE
 16ISceneObjectDesc
 172
+17:53:35
 17CPanoramaUIEngine
 17EVideoPlayerEvent
 17IGenericInterface
@@ -1129,6 +1129,7 @@ Application transferred too few scanlines
 Application transferred too many scanlines
 Applies an image as an opacity mask that stretches to the panel bounds and fades out it's content based on the alpha channel. The second float value is an optional opacity value for the mask itself, the image won't interpolate/cross-fade, but you can animate the opacity to fade the mask in/out. The -scroll-up, -scroll-down, and -scroll-up-down varients override the mask and apply only when the various vertical scroll scenarios affect the panel based on the overflow property.<br><br><b>Examples:</b><pre>opacity-mask: url( "file://{images}/upper_row_mask.tga" );opacity-mask: url( "file://{images}/upper_row_mask.tga" ) 0.5;opacity-mask-scroll-up: url( "file://{images}/upper_row_mask_up.tga" ) 0.5;opacity-mask-scroll-down: url( "file://{images}/upper_row_mask_down.tga" ) 0.5;opacity-mask-scroll-up-down: url( "file://{images}/upper_row_mask_up_down.tga" ) 0.5;</pre>
 Apr
+Apr 20 2021
 Argument %i to %s for event %s could not be converted to a string for parsing
 Arial
 Arithmetic table 0x%02x was not defined
@@ -2295,7 +2296,6 @@ Data error in compressed datastream in %s chunk
 Data:
 DebugTextureInfo001
 Dec
-Dec 18 2020
 Decipher Only
 DeclareCurrentThreadIsMainThread
 Decompression Error
@@ -5192,8 +5192,8 @@ STEAMMUSIC_INTERFACE_VERSION001
 STEAMPARENTALSETTINGS_INTERFACE_VERSION001
 STEAMREMOTESTORAGE_INTERFACE_VERSION014
 STEAMSCREENSHOTS_INTERFACE_VERSION003
-STEAMUGC_INTERFACE_VERSION012
-STEAMUSERSTATS_INTERFACE_VERSION011
+STEAMUGC_INTERFACE_VERSION015
+STEAMUSERSTATS_INTERFACE_VERSION012
 STEAMVIDEO_INTERFACE_V002
 STRENGTH
 STR_COPY
@@ -5434,25 +5434,26 @@ StartButtonUp
 StartupSubsystems
 StatsService_001
 Steam API unavailable
-SteamAPI_GetHSteamPipe
 SteamAPI_GetHSteamUser
 SteamAPI_RegisterCallResult
 SteamAPI_UnregisterCallResult
 SteamAudio001
-SteamClient018
-SteamController007
+SteamClient020
+SteamController008
 SteamControllerPresent
 SteamFriends017
+SteamInput003
 SteamInternal_ContextInit
 SteamInternal_CreateInterface
+SteamInternal_FindOrCreateUserInterface
 SteamMatchGameSearch001
 SteamMatchMaking009
 SteamMatchMakingServers002
-SteamNetworking005
+SteamNetworking006
 SteamPad
 SteamUI
-SteamUser020
-SteamUtils009
+SteamUser021
+SteamUtils010
 SteamVRController
 SteampadGuideButton
 SteampadGuideButtonUp

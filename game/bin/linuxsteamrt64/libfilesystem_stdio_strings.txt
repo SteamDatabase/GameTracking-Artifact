@@ -619,12 +619,10 @@ Source2Host001
 Source2Server001
 Source2ServerSerializers002
 StatsService_001
-SteamAPI_GetHSteamPipe
 SteamAPI_GetHSteamUser
 SteamAudio001
-SteamClient018
 SteamInternal_ContextInit
-SteamInternal_CreateInterface
+SteamInternal_FindOrCreateUserInterface
 String %d: ref:%d %s
 SubmitAsyncFileRequest
 SubmitSyncFileRequest

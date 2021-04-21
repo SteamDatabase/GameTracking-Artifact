@@ -174,7 +174,6 @@ $tI
 %p
 %s
 %s %s %s
-%s %s = %d
 %s %s = %s
 %s %s:  [%d] %s queue %s [type %s] %son 0x%p [alloc %u] [order %d] %s
 %s - Argument expected (message ID or name).
@@ -189,7 +188,6 @@ $tI
 %s allocation count overflow( %llu > %llu )
 %s allocation count overflow( %llu >= %llu )
 %s allocation count overflow( add %llu + current %llu > max %llu )
-%s at %s
 %s depth %d
 %s encoding %s pointer field %s %s%s%s
 %s encoding array count %d, field %s %s%s
@@ -222,7 +220,6 @@ $tI
 %s0x%p %s removing field %i %s at offset %u, removing from 0x%p
 %s0x%p Gathering field offsets in %s, storing in 0x%p
 %s0x%p rebuild %s::%s at %u
-%s:
 %s:  %d : %s bits %d to %d [%d bits] : %s
 %s:  %s
 %s:  %s packet type '%s' %d/%d (%.1f%%)
@@ -326,7 +323,6 @@ $tI
 , lo=
 , not just within "
 -
-- %d Receive Buffers in use (%llu bytes)
 - %d Scratch Buffers in use (%llu bytes)
 - Config: %s, %i connections
 - Data:    net total out  %.1f, in %.1f kB/s
@@ -358,7 +354,7 @@ $tI
 -networkvar_validate
 -nodns
 -noip
--perfectworld
+-snallownoauth
 -sse2
 -sse3
 -sse4
@@ -436,9 +432,6 @@ $tI
 12CSVCMsg_Menu
 12CSceneObject
 12CThreadEvent
-13CCallbackBase
-13CCallbackImplILi8EE
-13CNetMessagePBILi1E18CNETMsg_DisconnectL13SignonGroup_t11EL19NetChannelBufType_t1ELb0EE
 13CNetMessagePBILi3E23CNETMsg_SplitScreenUserL13SignonGroup_t11EL19NetChannelBufType_t1ELb0EE
 13CNetMessagePBILin1E19NetMessagePacketEndL13SignonGroup_t11EL19NetChannelBufType_t1ELb0EE
 13CNetMessagePBILin1E21NetMessagePacketStartL13SignonGroup_t11EL19NetChannelBufType_t1ELb0EE
@@ -493,6 +486,7 @@ $tI
 17CSVCMsg_VoiceData
 17CSVCMsg_VoiceInit
 17IGenericInterface
+1815
 18CAtomicManipulatorI10CTransformE
 18CAtomicManipulatorI10CUtlStringE
 18CAtomicManipulatorI10CUtlSymbolE
@@ -560,7 +554,6 @@ $tI
 20CCLCMsg_ListenEvents
 20CCLCMsg_RequestPause
 20CCLCMsg_ServerStatus
-20CNETMsg_Disconnect_t
 20CNetworkSerializerPB
 20CPostConnectCallback
 20CRefCountServiceBaseILb1E6CRefMTE
@@ -642,7 +635,6 @@ $tI
 32CNetworkFieldSerializerAllocator
 32CSVCMsg_GameSessionConfiguration
 32INetworkFieldSerializerAllocator
-32ISteamNetworkingSocketsCallbacks
 32NetMessageSplitscreenUserChanged
 33CNETMsg_SpawnGroup_ManifestUpdate
 33CSchemaRegistration_networksystem
@@ -651,7 +643,6 @@ $tI
 34CSVCMsg_GameEventList_descriptor_t
 34NetMessageSplitscreenUserChanged_t
 38CFlattenedSerializerSpewFunc_UtlString
-38Source2SteamNetworkingSocketsCallbacks
 3C
 4
 4.0
@@ -677,8 +668,6 @@ $tI
 8CUtlSlot
 9
 922
-9CCallbackI14CNetworkSystem19P2PSessionRequest_tLb0EE
-9CCallbackI14CNetworkSystem19P2PSessionRequest_tLb1EE
 :
 : "
 : Protocol message serialized to a size different from what was originally expected.  Perhaps it was modified by another thread during serialization?
@@ -705,7 +694,7 @@ $tI
 =%s
 =.=
 >
->@System
+>@host_limitlocal
 ?
 ???
 @
@@ -740,8 +729,11 @@ AddToTail
 AddToTailGetPtr
 AddUInt32
 AddUInt64
+Adding 0--%dms of additional latency to %g%% packets, for random reordering
+Adding additional packet lag of %dms (%dms each way), Bernoulli loss of %g%%.
 After sending last chunk of split packet payload, wait at least this many msecs after last activity before giving up
 AllocInternal
+Allowing IP connections without auth
 Already saw decimal point or exponent; can't have another one.
 AnimGraphEditorUtils001
 AnimationSystemUtils_001
@@ -759,7 +751,7 @@ AssociateNetMessageGroupIdWithChannelCategory: Trying to use an unregistered net
 AssociateNetMessageWithAllChannelCategories: Passed in an invalid net message handle!
 AssociateNetMessageWithChannelCategoryAbstract: Passed in an invalid net message handle!
 AssociateNetMessageWithChannelCategoryAbstract: Trying to use an unregistered netchannel category!
-Associating NetChan %s (%s) with Steam Net Connection handle #%d
+Associating NetChan %s (%s) with Steam Net Connection handle #%u (userdata %d)
 Attempt to compress out of band voice payloads (360 only).
 AuthenticAMD
 Available settings:
@@ -775,6 +767,7 @@ Bad expression syntax: '%s', expected a single matching pair of enclosing braces
 Bad expression token: %c
 BakedLODBuilderMgr001
 BenchmarkService001
+BetaUniverse
 BinaryProperties_GetValue
 Boolean default must be true or false.
 Buffer overflow in net channel %s
@@ -1077,8 +1070,6 @@ CNetChan::SendNetMessage: Trying to send message %s, which is an invalid categor
 CNetChan::SendNetMessage: Unable to send message %s, buffer is full!
 CNetChan::SetMaxBufferSize: cant preserve exiting data %i>%i.
 CNetChan::Setup for %s
-CNetChan::Shutdown
-CNetChan::Shutdown sending CNETMsg_Disconnect_t to %s
 CNetChan_TransmitBits->send
 CNetworkFieldChangedEventQueue::QueueChange:  ran out of scratch data space!!!
 CNetworkMessages::AllocateAndCopyConstructNetMessageAbstract unable to allocate unknown message type!
@@ -1093,12 +1084,14 @@ CNetworkSerializer: Unable to find network encoder named %s!
 CNetworkSerializer::Init:  Couldn't find field %s in iterator for %s
 CNetworkSystem::BufferToBufferDecompress with improperly sized dest buffer (%u in, %llu needed)
 CNetworkSystem::BufferToBufferDecompress with improperly sized dest buffer (%u in, %u needed)
+CNetworkSystem::CloseAllSockets()
 CNetworkSystem::FlushPeerToPeerChannels
 CNetworkSystem::Init() m_SteamAPIContextClient.Init ( ) failed (no Steam?)
-CNetworkSystem::SendToNsAddress SteamNetworkingSockets()->SendMessageToConnection %s returned %d when sending %d bytes
-CNetworkSystem::SendToNsAddress SteamNetworkingSockets()->SendMessageToUser %s returned %d when sending %d bytes
-CNetworkSystem::ShutdownPeerToPeerNetworking called but channel still exists
-CNetworkSystem::TerminatePeerToPeerSockets closing peer connection to %s:%d
+CNetworkSystem::InitGameServer: CSteamGameServerAPIContext::Init Failed
+CNetworkSystem::InitGameServer: CSteamGameServerAPIContext::Init OK
+CNetworkSystem::SendToNsAddress ISteamNetworkingSockets::SendMessageToConnection %s returned %d when sending %d bytes
+CNetworkSystem::Shutdown()
+CNetworkSystem::ShutdownGameServer
 CNetworkedQuantizedFloat
 COLORCORRECTION_VERSION_1
 CPPTYPE_BOOL
@@ -1156,10 +1149,12 @@ Caller should provide us with *buffer_ when buffer is non-empty
 Can't
 Can't BackUp() after failed Next().
 Can't ConnectLoopback between socket %d and %d, not enough slots
+Can't DisconnectLoopbackUnsafe between socket %d and %d, sockets out of range
 Can't back up over more bytes than were returned by the last call to Next().
+Can't create poll group for socket '%s'.  No SteamNetworkingSockets
 Can't get here.
 Can't get here: failed to get default value as string
-Can't match up steam connection user data %lld to netchan.  This can happen due to a race condition, just as we close the connection.  But otehrwise it's probably a bug
+Can't match up steam connection user data %lld to netchan.  This can happen due to a race condition, just as we close the connection.  But otherwise it's probably a bug
 Can't open network socket '%s'.  No SteamNetworkingSockets
 Cannot allocate abstract class
 Cannot allocate buffer larger than kint32max for
@@ -1171,8 +1166,12 @@ Cannot copy json_name to a proto of a different size.
 Cannot deallocate abstract class
 Cannot deduce for class
 Cannot destruct abstract class
+Cannot get SteamNetworkingSockets interfaces from Steam client
+Cannot get Steamnetworkingsockets interfaces from Steam SDK
 Cannot get here
 Cannot register change callback priorities at this stage! Must do it earlier!
+Cannot show available settings until SteamNetworkingUtils initialized
+Cannot show values of SteamNetworkongSockets configuration values until initialized
 Cannot use priority equal to NETWORK_FIELD_CHANGE_DEFAULT_PRIORITY!
 ChangeAccessorFieldPathIndex_t
 ChangeCallbackOnChange
@@ -1180,7 +1179,12 @@ ChangeCallbackOnChangeOrCreate
 CheckForDuplicatedFields
 Client Messages
 CloseSocket
-Closing Steam Net Connection on socket '%s' to %s, handle #%d (%d %s)
+CloseSteamNetConnection handle #%u (userdata %d)
+Closing '%s' P2P listen socket
+Closing '%s' SDR listen socket
+Closing '%s' UDP listen socket
+Closing '%s' poll group
+Closing Steam Net Connection on socket '%s' to %s, handle #%u (%d %s)
 Color
 CommandLine
 Comment started here.
@@ -1193,8 +1197,8 @@ Conditional Error: %s
 ConfigurationSystem_001
 ConfirmAllMessageHandlersInstalled
 ConnectByIPv4Address(%s) failed
-ConnectBySteamID(%s) failed
 ConnectInterfaces
+ConnectP2P(%s) failed
 ConnectToHostedDedicatedServer(%s) failed
 Connected loopback %s=%x@%s <-> %s=%x@%s
 Constructing fake local field from metadata %s::%s in %s
@@ -1207,7 +1211,7 @@ Couldn't write error buffer, delete error###.dat files to make space
 CreateHostedDedicatedServerListenSocket for socket '%s' failed /+/ port %u vport %d
 CreateInterface
 CreateSerializedEntityBlob:  removing %s from field path list, culled by another change.
-Creating channel for %s:%d as NET_CATEGORY_PEER_TO_PEER
+Created poll group for socket '%s'
 D
 DATA_LOSS
 DEADLINE_EXCEEDED
@@ -1226,7 +1230,7 @@ DetermineFieldSerializerGroup
 DevMsg
 DevMsg(char const*, ...)
 Direct UDP connect
-Disassociating NetChan %s (%s) from Steam Net Connection handle #%d
+Disassociating NetChan %s (%s) from Steam Net Connection handle #%u (userdata %d)
 Display info about a message (by classname or id)
 Division or mod by zero: dividend.hi=
 Don't bother compressing packets below this size.
@@ -1244,6 +1248,7 @@ ERROR: Field %s::%s unable to deduce unserializer for type (%s)!
 EXPORTSYSTEM_INTERFACE_VERSION_001
 EarlyInit_Tier0
 EconItemToolModel_001
+Enable P2P via ISteamNetworkingMessages.
 EncodeField
 Encountered 2 fields "%s" and "%s" in struct "%s" using the same change callback with different change callback types!
 Encountered message on net channel %s with an invalid network category! [net message %s]
@@ -1277,6 +1282,7 @@ EventSystem001
 Events
 Exceeded max number proxies in CFlattenedSerializer::BuildHierarchy()
 Exceeded maximum protobuf size of 2GB:
+Executing queued command: '%s'
 Expanded map entry type
 Expect a decimal number, got:
 Expected "
@@ -1307,7 +1313,7 @@ Extension ranges are not allowed in proto3.
 Extensions in proto3 are only allowed for defining options.
 Extensions of MessageSets must be optional messages.
 Extensions to non-lite types can only be declared in non-lite files.  Note that you cannot extend a non-lite type to contain a lite type, but the reverse is allowed.
-Extra connection %s:
+Extra connection [%s]:
 F
 FAILED_PRECONDITION
 FALSE
@@ -1337,11 +1343,17 @@ FTYPEDESC_SAVE
 FTYPEDESC_SCHEMA_INITIALIZED
 FTYPEDESC_WAS_INPUT
 FTYPEDESC_WAS_OUTPUT
-Failed to init Steam gameserver context!  SDR and P2P functions won't work.
+Failed to create poll group for socket '%s'?
 Failed to install message handler for message %s in channel %s!
 Failed to open P2P network socket '%s'
 Failed to open UDP network socket '%s'
+Failed to set SteamNetSockets option '%s'
+Failed to start listening for SDR on port %d.  Waiting and will retry
 Failed to unserialize message %s: expected message ID %u, encountered %u!
+FakeLag
+FakeLoss
+FakeReorderDelay
+FakeReorderPct
 False
 FastHexToBuffer() wants non-negative integers, not
 Feel free to add support for more if you need it.
@@ -1408,6 +1420,7 @@ Found invalid proto option data for:
 G
 GAMECONSOLE
 GCC: (Ubuntu 5.4.0-7steamrt1+srt1) 5.4.1 20160803
+GCC: (Ubuntu/Linaro 4.6.3-1ubuntu5) 4.6.3
 GCC: (crosstool-NG 1.17.0) 4.6.3
 GLIBCXX_3.4
 GLIBCXX_3.4.10
@@ -1455,6 +1468,8 @@ GetString
 GetStringReference
 GetUInt32
 GetUInt64
+Got ISteamNetworkingSockets user interfaces from steam client
+Got message on poll group for socket %s, but cannot find connection in table?
 Groups are not supported in proto3 syntax.
 H
 HIGHDPI
@@ -1475,15 +1490,11 @@ INetChannel::SetCategories: Network category wasn't registered!
 INetworkSystem::RegisterNetworkCategory: Attempted to register category %u twice (debug name: %s and %s)
 INetworkSystem::RegisterNetworkCategory: all categories must have ids between 0-31!
 IQuickTime001
-ISteamNetworking
-ISteamNetworkingMessages
 If a splitpacket has more than this many fragments, use the reliable/ack based protocol
 If set, only net_showmsg spew for data inbound on this socket name e.g. client, server, etc.
 If true when log when a query is blocked (can cause very large log files)
 If unable to bind to initial port, how many more to try binding.
 If we get a completed splitpacket requesting acks, send the final 'success' ack this many times
-Ignoring packet from %s:%d as it is not from Steam Channel P2P
-Ignoring packet from %s:%d as remote is from a game server
 Illegal jstype for int64, uint64, sint64, fixed64 or sfixed64 field:
 Import
 Import "
@@ -1496,6 +1507,7 @@ InitFakeField:  Couldn't find schema lookup for '%s' of type '%s'
 InitFakeField:  Parser function returned false for '%s' of type '%s'
 InitField
 InitGameServer
+InitSteamNetworking
 InputService_001
 InputStackSystemVersion001
 InputSystemVersion001
@@ -1809,8 +1821,11 @@ NetworkMessagesVersion001
 NetworkP2PService_001
 NetworkServerService_001
 NetworkService_001
+NetworkSystem
+NetworkSystem/CreateListenSocketP2P
 NetworkSystemUtilsVersion001
 NetworkSystemVersion001
+Networking
 Networking Reliable
 NewNode
 No active net channels.
@@ -1845,7 +1860,6 @@ Other Players
 Outdent() without matching Indent().
 Overrides IP for multihomed hosts
 P
-P2P session request from %s on %s %s
 P@
 PERMISSION_DENIED
 PLACEHOLDER_VALUE
@@ -1964,7 +1978,7 @@ RandomSeed
 Reached an unintended state: CPPTYPE_MESSAGE
 Reached impossible case in HasBit().
 ReadToken overflow
-Received message using legacy split packet system!  Ignoring
+ReceiveDatagram
 RecursiveLoadFromBuffer:  got EOF instead of keyname
 RecursiveLoadFromBuffer:  got NULL key
 RecursiveLoadFromBuffer:  got conditional between key and value
@@ -1984,7 +1998,7 @@ ReleaseLast() called on a RepeatedPtrField that is on an arena,
 ReleaseMessage
 RemoveArrayElementsOutsideOfArrayMetadataBounds:  %s [ent %d] removing change '%s' for field %s (value '%s') on array that has metadata with only %d array elements!
 Removed fake field %s at %d
-Removing Steam Net Connection for %s, handle #%d
+Removing Steam Net Connection for %s, handle #%u
 RenderDevice003
 RenderDeviceMgr001
 RenderHardwareConfig002
@@ -2024,8 +2038,8 @@ STEAMMUSIC_INTERFACE_VERSION001
 STEAMPARENTALSETTINGS_INTERFACE_VERSION001
 STEAMREMOTESTORAGE_INTERFACE_VERSION014
 STEAMSCREENSHOTS_INTERFACE_VERSION003
-STEAMUGC_INTERFACE_VERSION012
-STEAMUSERSTATS_INTERFACE_VERSION011
+STEAMUGC_INTERFACE_VERSION015
+STEAMUSERSTATS_INTERFACE_VERSION012
 STEAMVIDEO_INTERFACE_V002
 SceneSystem_002
 SceneUtils_001
@@ -2076,8 +2090,9 @@ Shows current network status
 Shows net channel info
 Signon
 SkipPropData_
-Socket '%s' bound to '%s', connection to %s:
+Socket '%s' bound to '%s' [%s]:
 Socket '%s' listening for %s on port %d:
+Socket '%s' listening for SDR on port %d virtual port %d
 SoundOpSystem001
 SoundOpSystemEdit001
 SoundService_001
@@ -2106,45 +2121,31 @@ Ss
 StatsService_001
 Steam Net connection %s %s, reason %d: %s
 Steam supporting smaller max routable packet than engine expecting (%d vs %d)
-SteamAPI_GetHSteamPipe
 SteamAPI_GetHSteamUser
-SteamAPI_RegisterCallResult
-SteamAPI_RegisterCallback
-SteamAPI_UnregisterCallResult
-SteamAPI_UnregisterCallback
 SteamAudio001
-SteamClient018
-SteamController007
+SteamClient020
+SteamController008
 SteamDatagram Network Configuration
-SteamDatagramClient_Init failed.  %s
-SteamDatagramClient_Init_InternalV7
-SteamDatagramClient_Internal_SteamAPIKludge
-SteamDatagramClient_Kill
-SteamDatagramClient_SetLauncher
-SteamDatagramServer_Init failed.  %s
-SteamDatagramServer_Init_Internal
-SteamDatagramServer_Kill
 SteamFriends017
-SteamGameServer012
-SteamGameServerNetworkingMessages
-SteamGameServerNetworkingSockets
+SteamGameServer013
 SteamGameServerStats001
-SteamGameServer_GetHSteamPipe
 SteamGameServer_GetHSteamUser
+SteamInput003
 SteamInternal_ContextInit
 SteamInternal_CreateInterface
+SteamInternal_FindOrCreateGameServerInterface
+SteamInternal_FindOrCreateUserInterface
 SteamMatchGameSearch001
 SteamMatchMaking009
 SteamMatchMakingServers002
 SteamNetSockets
-SteamNetworking005
-SteamNetworkingIdentity_ToString
-SteamNetworkingMessages
-SteamNetworkingSockets
-SteamNetworkingSockets_SetDebugOutputFunction
-SteamNetworkingUtils
-SteamUser020
-SteamUtils009
+SteamNetworking006
+SteamNetworkingMessages002
+SteamNetworkingSockets009
+SteamNetworkingUtils003
+SteamNetworkongSockets not yet initialized.  Queuing command '%s'
+SteamUser021
+SteamUtils010
 String %d: ref:%d %s
 String Command
 String Table
@@ -2152,7 +2153,7 @@ String field
 String literals cannot cross line boundaries.
 StringOutputStream.
 StringPrintfVector currently only supports up to
-Summary of connection to %s:
+Summary of connection [%s]:
 Swap
 Symbol name "
 T
@@ -2195,7 +2196,6 @@ Traffic from %s was blocked for exceeding rate limits
 Tried to calc delta to a src message of a different type.
 Tried to merge messages of different types
 Tried to register a non-generated type with the generated type registry.
-Tried to send P2P packet to %s, but no P2P API available
 Tried to send ad-hoc to address %s, but address is not in list of steam net connections!
 True
 Type appears to be in generated pool but wasn't
@@ -2204,7 +2204,7 @@ U
 UDP -> %s: sz=%5i seq=%5i ack=%5i rel=%1i tm=%8.3f
 UDP -> %s: sz=%i OOB (%d)
 UDP <- %s: sz=%5i seq=%5i ack=%5i rel=%1i tm=%8.3f
-UDP <- %s: sz=%i OOB (%d) wire=%i
+UDP <- %s: sz=%i OOB (%d)
 UNAUTHENTICATED
 UNAVAILABLE
 UNIMPLEMENTED
@@ -2344,7 +2344,6 @@ Warning
 Warning parsing text-format
 Warning:  %s = '%s' is infinite, clamping value.
 When enum name is stripped and label is PascalCased (
-Which API for clients to talk to each other?  -1=disable.  0=ISteamNetworking, 1=ISteamNetworkingMessages.
 Window over which to average queries per second averages.
 WorkshopSetup001
 WorldRendererBuilderMgr001
@@ -2360,6 +2359,7 @@ Z
 [ Net Message Info: %s ]
 [$0]
 [%.3f server clamped to %.3f]
+[%s]:
 [+%d]
 [A:%u:%u:%u]
 [C:%u:%u]
@@ -3257,6 +3257,7 @@ arguments.
 array of pointers changed
 array size changed
 array_ != __null
+assign_poll_group
 at depth %d items %d
 atomicops_internals_x86_gcc.cc
 available
@@ -3390,6 +3391,7 @@ convar.cpp
 coord
 coord_integral
 count(%d)
+create_poll_group
 crtoverride.cpp
 crtstuff.c
 cull rule %d:  %s
@@ -3748,7 +3750,6 @@ google::protobuf::uint64 google::protobuf::UnknownField::fixed64() const
 google::protobuf::uint64 google::protobuf::UnknownField::varint() const
 group
 h
-host_limitlocal
 hostip
 i
 i < length_
@@ -3811,7 +3812,6 @@ libnetworksystem.so
 libpthread.so.0
 libstdc++.so.6
 libsteam_api.so
-libsteamnetworkingsockets.so
 libtier0.so
 libvstdlib.so
 listen
@@ -3822,7 +3822,6 @@ loopback:%d
 loopback_t CUtlMemoryPool
 lseek
 lseek@@GLIBC_2.2.5
-lzss.cpp
 m
 m_StreamReliable
 m_StreamUnreliable
@@ -4027,6 +4026,7 @@ schemaclassinfo.cpp
 schemaiterator.cpp
 schemasystem
 sdr
+sdr %s = %s
 sdr config option not found
 sentinel
 serialize
@@ -4037,6 +4037,7 @@ serializing
 server
 server_can_execute
 service $0 {
+service thread gave up on lock
 sfixed32
 sfixed64
 shutdown
@@ -6762,7 +6763,6 @@ unable to match %s::%s (type %s) in %s, no likely matches found
 unexpected for field
 uninterpreted_option
 unknown
-unknown peer
 unknown_field_set.cc
 unsigned long const& std::max<unsigned long>(unsigned long const&, unsigned long const&)
 unsigned long const& std::min<unsigned long>(unsigned long const&, unsigned long const&)
@@ -6781,7 +6781,6 @@ utlsymbol.cpp
 utlsymbollarge_h_schema.gen_cpp
 v
 value
-valve
 vector.cpp
 vector::_M_fill_insert
 vector::_M_insert_aux

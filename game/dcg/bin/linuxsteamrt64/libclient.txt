@@ -111,7 +111,6 @@
  FindOrCreateQuantizedFloatEncoder
  GetCPUFrequencyResults
  GetCPUInformation
- GetHSteamPipe
  GetQuantizedFloatEncoderByIndex
  HangWatchdogInternal_BeginScope
  HangWatchdogInternal_EndScope
@@ -241,8 +240,7 @@
  SteamAPI_UnregisterCallback
  SteamInternal_ContextInit
  SteamInternal_CreateInterface
- SteamNetworkingSockets
- SteamNetworkingUtils
+ SteamInternal_FindOrCreateUserInterface
  T BinaryProperties_GetValue
  T CreateInterface
  T Etc::Block4x4::Block4x4()

@@ -59,9 +59,9 @@
 "%s" %s %s %d %d %d %d
 "%s" %s 0 0 0 %d 0
 "%s" = "%s"
-"%s" NetChan connected%s.
-"%s" NetChan disconnected
 "%s" cannot be modified.
+"%s" connected%s.
+"%s" disconnected
 "%s" handled event %s (%d) %llu %d %d
 "%s" is a launch or machine config value, should not use array notation.
 "%s" is an app config value, should not use array notation.
@@ -220,7 +220,7 @@ $0oneof $1 {
 $0option $1;
 $0rpc $1($4.$2) returns ($5.$3)
 $0}
-$@Job
+$@Can't %s, slot %d not active
 $ORIGIN
 $tI
 %
@@ -304,6 +304,7 @@ $tI
 %f LONG FRAME DETECTED: %d ticks.
 %f LONG FRAME DETECTED: %f seconds computation, %f dt.
 %f Player [%s][%d][adr:%s] was sent a datagram %d bits (%8.3f bytes)
+%f,
 %g
 %g %g %g %g
 %g: AdvanceTime ticks this frame %d, sim remain: %g
@@ -557,15 +558,12 @@ $tI
 (?R or (?[+-]digits must be followed by )
 (Direct Routing)
 (If sv_mincmdrate is > 0), this sets the maximum value for cl_cmdrate.
-(Indirect Routing : %u hops through "%s" )
-(Indirect Routing : NOROUTE )
 (Missing)
 (None)
 (Not Visible)
 (Only used when hosting xbox games). Send clients updates at the same time. This saves CPU because the server will encode and calc deltas on less frames.
 (Relay)
 (Texture)
-(Unknown Peer)
 (Untested Direct Routing)
 (VR)
 (Visible)
@@ -655,15 +653,10 @@ $tI
 , "%s"
 , %s
 , console
-, final destination.
-, for "%s" with %d expected additional hops.
-, for "%s", the recipient became unknown while in the relay buffer
 , from:
 , lo=
 , not just within "
 , parent:
-, relayed from "%s"
-, to "%s"
 -
 - "%s"
 - %d / %d allocated
@@ -959,7 +952,6 @@ $tI
 00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899
 0123456789ABCDEF
 0123456789abcdef
-01:16:33
 0: Force z prepass off. 1: Force on. -1: Don't force
 0: Use normals reconstructed from depth. 1: Output correct normals in z prepass.
 0=Off, 1=Surface Wireframe, 2=Transparent Wireframe
@@ -1108,8 +1100,6 @@ $tI
 13CNetMessagePBILi61E22CSVCMsg_PacketReliableL13SignonGroup_t0EL19NetChannelBufType_t1ELb0EE
 13CNetMessagePBILi63E21CSVCMsg_ServerSteamIDL13SignonGroup_t0EL19NetChannelBufType_t1ELb1EE
 13CNetMessagePBILi6E17CNETMsg_SetConVarL13SignonGroup_t9EL19NetChannelBufType_t1ELb0EE
-13CNetMessagePBILi700E19CBidirMsg_RelayInfoL13SignonGroup_t0EL19NetChannelBufType_t0ELb0EE
-13CNetMessagePBILi701E21CBidirMsg_RelayPacketL13SignonGroup_t0EL19NetChannelBufType_t0ELb0EE
 13CNetMessagePBILi70E22CSVCMsg_FullFrameSplitL13SignonGroup_t0EL19NetChannelBufType_t1ELb0EE
 13CNetMessagePBILi7E19CNETMsg_SignonStateL13SignonGroup_t10EL19NetChannelBufType_t1ELb0EE
 13CNetMessagePBILi8E23CNETMsg_SpawnGroup_LoadL13SignonGroup_t15EL19NetChannelBufType_t1ELb0EE
@@ -1217,6 +1207,7 @@ $tI
 14IVertColorBase
 15.0
 150
+15:52:34
 15CBaseConstraint
 15CBaseDemoAction
 15CBaseSpawnGroup
@@ -1870,7 +1861,6 @@ $tI
 20ConVar_ServerBounded
 20IFileLoggingListener
 20IGameResourceService
-20IPeerToPeerCallbacks
 20IResourceTypeManager
 20ISoundSystemServices
 20ISource2ClientConfig
@@ -1881,7 +1871,6 @@ $tI
 21C2S_CONNECT_Message_t
 21CBaseActionEditDialog
 21CBaseActionZoomDialog
-21CBidirMsg_RelayInfo_t
 21CBidirMsg_RelayPacket
 21CCLCMsg_BaselineAck_t
 21CCLCMsg_ClientMessage
@@ -1944,7 +1933,6 @@ $tI
 22SerializedNetAddress_t
 2317
 23CBaseGameUIInputHandler
-23CBidirMsg_RelayPacket_t
 23CBoundedCvar_UpdateRate
 23CCLCMsg_LoadingProgress
 23CConsoleLoggingListener
@@ -2089,7 +2077,7 @@ $tI
 27ISwitchLoopModeStatusNotify
 27ITestScriptCommandProcessor
 27NetMessageConnectionCrashed
-2822
+2820
 28CBaseIntrospectedTypeManager
 28CBoneConstraintPoseSpaceBone
 28CCLCMsg_SplitPlayerConnect_t
@@ -2244,9 +2232,8 @@ $tI
 8CFmtStrNILi1024ELb1EE
 8CFmtStrNILi1040ELb0EE
 8CFmtStrNILi2048ELb0EE
-8CFmtStrNILi2048ELb1EE
 8CFmtStrNILi256ELb0EE
-8CFmtStrNILi4096ELb1EE
+8CFmtStrNILi4096ELb0EE
 8CFunctor
 8CUtlSlot
 8b  16-May-2010
@@ -2305,7 +2292,6 @@ $tI
 <<null>>
 <<unknown>>
 <=
-<ERROR>
 <INVALID EXPRESSION>
 <INVALID_RBF_TYPE>
 <NO EXPRESSION>
@@ -2418,6 +2404,7 @@ ATTEMPTED TO DECOMMIT OWNED MEMORY STACK SPACE
 AVX
 Aborting download of %s
 Accel
+Accepting P2PSessionRequest_t from %s
 ActionName
 ActionSkip
 ActionSkipType
@@ -2574,6 +2561,7 @@ ApplyButton
 ApplyChanges
 ApplyDataToControls
 Apr
+Apr 20 2021
 Arabic
 Arithmetic table 0x%02x was not defined
 ArmItem
@@ -2705,7 +2693,6 @@ Bench started at %f
 BenchmarkService001
 Bengali
 BentNormalData
-Best route for "%s" changed,
 BinaryProperties_GetValue
 Bind a key for a particular splitscreen player.
 Bind a key.
@@ -3378,6 +3365,9 @@ CNetworkGameServerBase::ConnectClient:  g_pNetworkSystem->CreateNetChannel
 CNetworkGameServerBase::ReplyConnection
 CNetworkGameServerBase::SetServerState (%s -> %s)
 CNetworkP2PService
+CNetworkP2PService::InternalBroadcastP2PNetMessage: SerializeAbstract for message %s failed!
+CNetworkP2PService::InternalBroadcastP2PNetMessage: SerializeAbstract for message %s overflowed!
+CNetworkP2PService::UpdatePeerConnectionStatus
 CNetworkServerCreatePrerequisites
 CNetworkServerService
 CNetworkServerService::StartupServer called but we still have extant instance!
@@ -3932,9 +3922,7 @@ ConnectOutputToScriptSelf
 Connected [%s] [last packet %.3f sec ago]
 Connecting to %s
 Connecting to game stats harvesting server.
-Connection State: Direct=%s, NetChan=%s, Ever=%s
-Connection allowed by engine
-Connection denied by engine
+Connection State: Connected=%s, Ever=%s
 Connection failed.
 Connection lost: %s.
 Connection rejected by game
@@ -3973,7 +3961,6 @@ ConvertFloatToChannel: Trying to convert to a a float to a destation of byte siz
 ConvertFloatToChannel: Trying to convert to a a normalized float to a destation of byte size %d
 ConvertGammaToLinear
 ConvertRGBToRGBAImage
-Converting queued message to relayed message
 Coptic
 Copy
 CopyAttrFrom
@@ -4177,16 +4164,13 @@ DialogVariables
 DictSortLessFunc
 Didn't expect more than one scan
 Didn't receive protocol failure data.
-Direct connection handlers:
 Directory to store replays in
 Disable vprof
 DisableBackgroundLevelLoading
 DisableGameStats
 DisarmItem
 DiscardMouseFocusClick
-Discarding P2P relay packet originating from "%s" after %f seconds. %d bytes, unreached recipients: "%s"
 Discarding pending request '%s, %u'
-Discarding queued %ub direct-only P2P packet after %f seconds, remaining recipients:
 Discarding queued download of %s
 Discarding queued request '%s, %u'
 Disconnect from server
@@ -4252,7 +4236,6 @@ Draw the sky map
 Driver %s (vendorid %x, deviceid %x DXSupport Level %d)
 Driver Name:  %sDriver Version: %sVendorId / DeviceId:  0x%x / 0x%xSubSystem / Rev:  0x%x / 0x%xDXLevel:  %dTexture memory:  %sVid:  %s, render at %i x %i, display at %i x %i, refresh rate %.2fHz (%uHz desktop)
 DropContext
-Dropping %db message
 Dspline "%i"
 Dump a named stackstats structure to disk. Usage: stackstats_dump "structname" ["filename"]
 Dump game events to console. (1 = Show Signaling, 2 = Show Posting also).
@@ -4894,7 +4877,6 @@ Failed to allocate memory
 Failed to assign bool literal value
 Failed to call CBaseIntrospectedTypeManager::Init
 Failed to call CBaseIntrospectedTypeManager::SetDiskDataBinding
-Failed to connect to %s.
 Failed to connect to %s.  Reason code %d.  %s
 Failed to create temporary file %s
 Failed to determine base game directory from %s
@@ -4910,6 +4892,7 @@ Failed to map from %s to content-path
 Failed to map from %s to game-path
 Failed to open %s
 Failed to open/bind server socket
+Failed to parse P2P message from '%s'
 Failed to parse channel info.
 Failed to precache script entity %s of type %s: script entity instance is null
 Failed to read demo header.
@@ -5238,8 +5221,6 @@ GetUserSetting: cvar '%s' unknown.
 GetViewEntity
 Ghz
 Glagolitic
-Global level peer to peer control to trust everyone. Still requires a peer group handler to trust the user as well. [0 = force off, 1 = force on, -1 = Engine Controlled]
-Global level peer to peer control to trust steam friends. Still requires a peer group handler to trust the user as well. [0 = force off, 1 = force on, -1 = Engine Controlled]
 Go this fast when starting to hold FF button.
 Going to tick %u...
 Goptions { %s }
@@ -5361,6 +5342,7 @@ If set, whenever a game ends, if the total memory used by the server is greater 
 If the clock offset is less than this amount (in milliseconds), then no clock correction is applied.
 If true when log when a query is blocked (can cause very large log files)
 IgnoreScheme
+Ignoring P2PSessionRequest_t from %s
 Ignoring PLTE chunk in grayscale PNG
 Ignoring attempt to set cHRM RGB triangle with zero area
 Ignoring attempt to set negative chromaticity value
@@ -5378,7 +5360,6 @@ Ignoring iCCP chunk with declared size = %u and actual length = %u
 Ignoring incorrect cHRM value when sRGB is also present
 Ignoring incorrect gAMA value when sRGB is also present
 Ignoring line in steam.inf: '%s'
-Ignoring net channel creation for "%s:%u" because it's not on the STEAM_P2P_CLIENT_TO_CLIENT channel.
 Ignoring nonzero compression type in iCCP chunk
 Ignoring request to write a PLTE chunk in grayscale PNG
 Ignoring unknown convar '%s' in file '%s'
@@ -5422,7 +5403,6 @@ Index must be in range of repeated field values.
 Index out-of-bounds (field is empty).
 Indicates whether or not the tv should use delta frames for storage of intermediate frames. This takes more CPU but significantly less memory.
 Infinite Joint Weights encountered: Skinning will not work!
-Info Age: %f
 Info: OS Paged Pool Memory restored - currently %d pages free (%d Kb) of total %d pages (%d Kb total).
 InfoForResourceTypeAnimationGroupResourceData_t
 InfoForResourceTypeCModel
@@ -5916,10 +5896,8 @@ LoggingSystem_IsChannelEnabled
 LoggingSystem_Log
 LoggingSystem_Log(int, LoggingSeverity_t, Color, char const*, ...)
 LoggingSystem_Log(int, LoggingSeverity_t, LeafCodeInfo_t const&, char const*, ...)
-LoggingSystem_Log(int, LoggingSeverity_t, LoggingMetaData_t const*, Color, char const*, ...)
 LoggingSystem_Log(int, LoggingSeverity_t, LoggingMetaData_t const*, char const*, ...)
 LoggingSystem_LogDirect
-LoggingSystem_LogDirect(int, LoggingSeverity_t, Color, char const*)
 LoggingSystem_PopLoggingState
 LoggingSystem_PushLoggingState
 LoggingSystem_RegisterBackdoorLoggingListener
@@ -6280,8 +6258,6 @@ N13CNetMessagePBILi61E22CSVCMsg_PacketReliableL13SignonGroup_t0EL19NetChannelBuf
 N13CNetMessagePBILi62E18CSVCMsg_HLTVStatusL13SignonGroup_t0EL19NetChannelBufType_t1ELb1EE16CProtobufBindingE
 N13CNetMessagePBILi63E21CSVCMsg_ServerSteamIDL13SignonGroup_t0EL19NetChannelBufType_t1ELb1EE16CProtobufBindingE
 N13CNetMessagePBILi6E17CNETMsg_SetConVarL13SignonGroup_t9EL19NetChannelBufType_t1ELb0EE16CProtobufBindingE
-N13CNetMessagePBILi700E19CBidirMsg_RelayInfoL13SignonGroup_t0EL19NetChannelBufType_t0ELb0EE16CProtobufBindingE
-N13CNetMessagePBILi701E21CBidirMsg_RelayPacketL13SignonGroup_t0EL19NetChannelBufType_t0ELb0EE16CProtobufBindingE
 N13CNetMessagePBILi70E22CSVCMsg_FullFrameSplitL13SignonGroup_t0EL19NetChannelBufType_t1ELb0EE16CProtobufBindingE
 N13CNetMessagePBILi7E19CNETMsg_SignonStateL13SignonGroup_t10EL19NetChannelBufType_t1ELb0EE16CProtobufBindingE
 N13CNetMessagePBILi8E23CNETMsg_SpawnGroup_LoadL13SignonGroup_t15EL19NetChannelBufType_t1ELb0EE16CProtobufBindingE
@@ -6516,7 +6492,6 @@ NETWORK_FIELD_DEFAULT_PRIORITY
 NETWORK_FIELD_HIGHEST_PRIORITY
 NETWORK_FIELD_LOWEST_PRIORITY
 NET_Tick
-NOROUTE
 NOT
 NOT_FOUND
 NO_AUTO_POSSESS)
@@ -6560,8 +6535,6 @@ NetworkService
 NetworkService_001
 NetworkSystemUtilsVersion001
 NetworkSystemVersion001
-Never Queried,
-Never Received
 New %s Action
 New->
 NewControls
@@ -6577,7 +6550,6 @@ No # necessary
 No Buffer
 No HLTV server running
 No IDATs written into file
-No Route
 No binding for '%s', defautl key already bound to '%s'
 No client connection
 No conversion from %s to bool now
@@ -6615,7 +6587,6 @@ No previous save
 No previous spawn group
 No pushed values to pop
 No response from server.
-No route
 No server loaded
 No space in chunk cache for iTXt
 No space in chunk cache for sPLT
@@ -7218,7 +7189,6 @@ Quantizing to %d colors
 QuarterSizeAttrWithBoxFilter
 Quaternion
 Quaternion-world
-Query Age: %f,
 QueryPort
 QueuePostDataUpdates
 Queued   :  %s
@@ -7371,15 +7341,11 @@ Receive failed.
 Receive game stats harvesting protocol upload permissible.
 Received S2C_CHALLENGE [%u auth %d] from %s
 Received S2C_CONNECTION from %s [addons:'%s']
-Received a %db relay packet from "%s", originally from "%s" travelling %u previous hops
 Received acknowledgement tick=%d after the full frame of %d, discarding current fullframe and rebuilding
 Received connection rejection that didn't match my challenge, ignoring.
 Received delta packet entities while spawing!
 Received new full frame at tick %d!  Had %d chunks of previous frame %d!
 Received packet entities while connecting!
-Received relay connection establishment packet from "%s"
-Received relay query from "%s" for "%s"
-Received relay update from "%s" regarding "%s"
 Received response.
 Received section %d but wanted section %d, removing full frame
 Received signon %i when at %i
@@ -7410,7 +7376,6 @@ RedirectOutput
 Redirecting spectator %s to SourceTV relay %s
 ReencodeForVConsole
 Refreshing cached DPI info
-Refused
 RegisterAliasEntityClass
 RegisterComponentType
 RegisterConfigValue: Unknown error constructing config value "%s"!
@@ -7428,13 +7393,11 @@ Rejecting connection request from %s (reservation cookie 0x%llx), server is rese
 RelativeFrame
 Relay "%s", connect to %s (GSID:%s)
 Relay "%s", not connect.
-Relay Status:
 Relay proxies retry connection after network timeout
 Relay server is hibernating
 Relay server waking up from hibernation
 Relay shutting down because sv_shutdown was done and a game has ended.
 Relay voice data: 0=off, 1=on
-Relayed %db message
 Release
 ReleaseLast() called on a RepeatedPtrField that is on an arena,
 ReleaseMessage
@@ -7455,7 +7418,6 @@ Removeip: "<><><>" was unbanned by "%s" (IP "%s")
 Removes a connected script function from an I/O event on the passed entity.
 Removes a connected script function from an I/O event on this entity.
 Removes a splitscreen user.
-Removing P2P channel for '%s' due to the peer being unknown and unqueried for %f seconds
 Removing Prequisite %s from sequence for %s
 Render Coordination State:
 Render blank instead of the game world
@@ -7641,8 +7603,8 @@ STEAMMUSIC_INTERFACE_VERSION001
 STEAMPARENTALSETTINGS_INTERFACE_VERSION001
 STEAMREMOTESTORAGE_INTERFACE_VERSION014
 STEAMSCREENSHOTS_INTERFACE_VERSION003
-STEAMUGC_INTERFACE_VERSION012
-STEAMUSERSTATS_INTERFACE_VERSION011
+STEAMUGC_INTERFACE_VERSION015
+STEAMUSERSTATS_INTERFACE_VERSION012
 STEAMVIDEO_INTERFACE_V002
 STEAM_
 STEAM_ID_LAN
@@ -7816,6 +7778,7 @@ Send embedded full frames
 Send failed.
 Send tables cache file
 SendConnectPacket
+SendMessageToUser failed with result %d sending %d byte message %s to %s!
 SendRebroadcastMessage
 SendSignonData
 Sending C2S_CONNECT [%u protocol %u auth %d] to %s
@@ -8153,7 +8116,6 @@ Steam UGC subscriptions: %u total; %u custom games
 Steam UGC subscriptions: unavailable
 Steam Universe is invalid, possibly asking before Steam was successfully initialized.
 Steam ownership check failed.
-SteamAPI_GetHSteamPipe
 SteamAPI_GetHSteamUser
 SteamAPI_Init
 SteamAPI_Init failed
@@ -8169,28 +8131,31 @@ SteamAPI_UnregisterCallback
 SteamAPI_UseBreakpadCrashHandler
 SteamAppId
 SteamAudio001
-SteamClient018
-SteamController007
+SteamClient020
+SteamController008
 SteamFriends017
 SteamGameId
-SteamGameServer012
+SteamGameServer013
 SteamGameServerStats001
-SteamGameServer_GetHSteamPipe
 SteamGameServer_GetHSteamUser
 SteamGameServer_InitSafe( finish )
 SteamGameServer_InitSafe( start )
 SteamGameServer_RunCallbacks
 SteamGameServer_Shutdown
+SteamInput003
 SteamInternal_ContextInit
 SteamInternal_CreateInterface
+SteamInternal_FindOrCreateGameServerInterface
+SteamInternal_FindOrCreateUserInterface
 SteamInternal_GameServer_Init
 SteamMatchGameSearch001
 SteamMatchMaking009
 SteamMatchMakingServers002
-SteamNetworking005
+SteamNetworking006
+SteamNetworkingUtils003
 SteamServersDisconnected
-SteamUser020
-SteamUtils009
+SteamUser021
+SteamUtils010
 SteamVR FAILED to initialize!
 SteamVR initialization begin...
 StereoToScreenBlue
@@ -8453,7 +8418,6 @@ Truncated zTXt chunk
 Truncating incorrect info tRNS chunk length
 Truncating incorrect tRNS chunk length
 Truncating profile to actual length in iCCP chunk
-Trusted
 Trying to concatenate meshes with different numbers of attributes!
 Trying to concatenate meshes with incompatible attribute sets!
 Ts
@@ -8584,8 +8548,6 @@ Unsupported field type for entity attribute, field %s
 Unsupported marker type 0x%02x
 Unsupported text encoding id.
 Unsupported: type mismatch
-Untested
-Untrusted
 UnzipZip error: failed to find '%s' in zip '%s'
 UpArrow
 Update delta tick %d not found.
@@ -9019,7 +8981,6 @@ Y
 Y@    [%d: huff+mtf
 Yaw;
 Yi
-You
 You have been kicked and banned %s by the server.
 Your current chat group is "%s"
 Z
@@ -9119,7 +9080,6 @@ Zs
 \x%02x
 ]
 ] is an invalid data character in JavaScript compatibility mode
-], Direct Connection %s (Handler=%d, Global=%d)
 ^
 ^@
 ^oEZ
@@ -11068,7 +11028,6 @@ fread@@GLIBC_2.2.5
 free@@GLIBC_2.2.5
 frexp
 frexp@@GLIBC_2.2.5
-from <You>
 from_steam
 fs_report_sync_opens
 ftp://
@@ -12788,7 +12747,6 @@ optionallycompressedtangentframe
 origin_max_delta
 origin_relative
 original
-originally from
 os/type  : %s %s
 out of memory
 outerconeangle
@@ -12818,8 +12776,6 @@ oversubscribed dynamic bit lengths tree
 oversubscribed literal/length tree
 p
 p2p_listpeers
-p2p_lockdown_global_trust_everyone
-p2p_lockdown_global_trust_friends
 p2p_ping "%s"
 p2p_relay_maxhops
 p@

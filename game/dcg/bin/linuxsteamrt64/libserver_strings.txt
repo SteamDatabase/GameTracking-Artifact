@@ -1403,6 +1403,7 @@ $tI
 /home/buildbot/buildslave/dcg_rel_linuxsteamrt64/build/src/game/gamecore/igamesystem.cpp
 /home/buildbot/buildslave/dcg_rel_linuxsteamrt64/build/src/game/server/baseentity.cpp
 /home/buildbot/buildslave/dcg_rel_linuxsteamrt64/build/src/game/server/dcg/dcg_player.cpp
+/home/buildbot/buildslave/dcg_rel_linuxsteamrt64/build/src/game/server/dcg/server_core.cpp
 /home/buildbot/buildslave/dcg_rel_linuxsteamrt64/build/src/game/server/dcg/server_stubs.cpp
 /home/buildbot/buildslave/dcg_rel_linuxsteamrt64/build/src/game/server/gameinterface.cpp
 /home/buildbot/buildslave/dcg_rel_linuxsteamrt64/build/src/game/server/hltvdirector.cpp
@@ -1878,6 +1879,7 @@ $tI
 143
 144
 1440
+145
 1452
 146
 147
@@ -3249,6 +3251,7 @@ $tI
 21CServerRagdollTrigger
 21CSoundEventAABBEntity
 21CSpriteAlias_env_glow
+21CSteamCallbackGeneric
 21CTimeOfDayDynamicKeys
 21CTraceFilterPushFinal
 21CTraceMsg_CardCreated
@@ -4287,7 +4290,6 @@ $tI
 32CSkeletonAnimationHistoryContext
 32CTraceMsg_CardReturnedToFountain
 32ISkeletonAnimationHistoryContext
-32ISteamNetworkingSocketsCallbacks
 33BreadthFirstSearchVolumeCollector
 33CEcon_FlushInventoryCache_Request
 33CGCStoreRechargeRedirect_LineItem
@@ -4440,7 +4442,6 @@ $tI
 36CTraceMsg_StateBasedEffectsUpdateEnd
 36CUserMessageHandHapticPulsePrecise_t
 36INetworkSerializerBindingBuildFilter
-36ServerSteamNetworkingSocketsCallback
 37CAttribute_ItemDynamicRecipeComponent
 37CGCSystemMsg_GetPurchaseTrust_Request
 37CInlineJob_CMsgGCServerVersionUpdated
@@ -6171,7 +6172,7 @@ Abaddon
 AbsTagType(unknown)
 Accel (time*time)
 Accel/Deaccel (cosine)
-Accepting connection from %s, hconn=%d
+Accepting connection from %s, hconn=%u
 Access of EHANDLE/CHandle for class %s:%p in destructor!
 Account %u has abandoned the game
 Achievement award called but already achieved: %s
@@ -6241,6 +6242,7 @@ AddAllocatedMessage
 AddBool
 AddBroadcastTeamTarget
 AddCSSClasses
+AddConnectionToPollGroup
 AddContextForScript
 AddContextForScriptNumeric
 AddDamage
@@ -6418,7 +6420,6 @@ Any
 Any Path
 Aphotic Shield
 Apotheosis Blade
-AppID
 AppendToLogFile
 AppendTransitionResources:  create manifest from save/restore keyvalues
 Appends a string to a log file on the server
@@ -6481,7 +6482,6 @@ AttackAxis
 AttemptToMaterialize
 Attempted to ConvertToCopiedData for unsupported type (%d)
 Attempted to add a debughistory line to category %d. Valid categories are %d to %d.
-Attempted to add stats to table %s with an invalid iTableID
 Attempted to alias unknown class %s using same designer name "%s"
 Attempted to create unknown entity classname "%s"!
 Attempted to dump a history for category %d. Valid categories are %d to %d.
@@ -8400,7 +8400,7 @@ Cloak of Endless Carnage
 Closing connection [%s] hconn=%d we don't recognize that connection, ignoring.
 Closing connection [%s] hconnn=%d but that user is using hconn=%d now.  Ignoring.
 Closing old connection
-Closing previous connection to %s, hconn=%d, because we have a new one for that player!  This is unusual.
+Closing previous connection to %s, hconn=%u, because we have a new one for that player!  This is unusual.
 ClothShapeCapsule
 ClothShapeList
 ClothShapeSphere
@@ -13560,8 +13560,8 @@ STEAMMUSIC_INTERFACE_VERSION001
 STEAMPARENTALSETTINGS_INTERFACE_VERSION001
 STEAMREMOTESTORAGE_INTERFACE_VERSION014
 STEAMSCREENSHOTS_INTERFACE_VERSION003
-STEAMUGC_INTERFACE_VERSION012
-STEAMUSERSTATS_INTERFACE_VERSION011
+STEAMUGC_INTERFACE_VERSION015
+STEAMUSERSTATS_INTERFACE_VERSION012
 STEAMVIDEO_INTERFACE_V002
 SUB_CallUseToggle
 SUB_DissolveIfUncarried
@@ -13993,8 +13993,6 @@ Server state transitioned to state %s
 Server:
 Server: Missing precache for effect "%s"!
 Server: added caption file: %s
-ServerIP
-ServerName
 ServerSessionID
 ServerUploadGameStats001
 ServiceOptions
@@ -14452,7 +14450,6 @@ Start scene playback, takes activatorEntity as param
 Start: %3.0f
 StartGravity
 StartLagCompensation
-StartMap
 StartOpen
 StartOverlays
 StartParticleSystemThink
@@ -14476,7 +14473,6 @@ Stats Proto: Size: %u
 StatsService_001
 Steal Strength
 Steam Cannon
-SteamAPI_GetHSteamPipe
 SteamAPI_GetHSteamUser
 SteamAPI_Init
 SteamAPI_RegisterCallResult
@@ -14485,32 +14481,30 @@ SteamAPI_RunCallbacks
 SteamAPI_UnregisterCallResult
 SteamAPI_UnregisterCallback
 SteamAudio001
-SteamClient018
-SteamController007
+SteamClient020
+SteamController008
 SteamFriends017
 SteamGameCoordinator001
-SteamGameServer012
+SteamGameServer013
 SteamGameServerStats001
 SteamGameServer_GetHSteamPipe
 SteamGameServer_GetHSteamUser
 SteamGameServer_RunCallbacks
-SteamGameStats001
 SteamID
 SteamID   : %s (%llu)
 SteamInfo
+SteamInput003
 SteamInternal_ContextInit
 SteamInternal_CreateInterface
+SteamInternal_FindOrCreateGameServerInterface
+SteamInternal_FindOrCreateUserInterface
 SteamMatchGameSearch001
 SteamMatchMaking009
 SteamMatchMakingServers002
-SteamNetworking005
-SteamNetworkingSockets
+SteamNetworking006
 SteamToursHost001
-SteamUtils009
-Steamworks Stats: %s Ending %s session id: %llu
-Steamworks Stats: %s Ending CLIENT session id: %llu
+SteamUtils010
 Steamworks Stats: %s Received %s session id: %llu
-Steamworks Stats: %s Requesting session id.
 Steamworks Stats: %s session id not available.
 Steel Reinforcement
 Step: %6.3f [ms]
@@ -15667,7 +15661,7 @@ Xsp
 Xuc
 Xwd
 Y
-Y@SteamUser020
+Y@SteamUser021
 YAxis
 YYYY
 YYYY-MM-DD
@@ -19640,7 +19634,6 @@ libpthread.so.0
 libserver.so
 libstdc++.so.6
 libsteam_api.so
-libsteamnetworkingsockets.so
 libtier0.so
 libvstdlib.so
 light has _fifty_percent_distance of %f but no zero_percent_distance
@@ -21594,6 +21587,7 @@ m_hPickupParticleEffect
 m_hPlayer
 m_hPlayerProxy
 m_hPointHMDAnchor
+m_hPollGroup != k_HSteamNetPollGroup_Invalid
 m_hPostProcessController
 m_hPostProcessCtrl
 m_hPostSettings

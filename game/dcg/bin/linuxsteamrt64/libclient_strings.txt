@@ -6201,6 +6201,7 @@ $tK
 21CScriptShowSpellStack
 21CScript_BallLightning
 21CScript_KeenfolkGolem
+21CSteamCallbackGeneric
 21CSteam_Voice_Encoding
 21CTimeOfDayDynamicKeys
 21CTraceMsg_CardCreated
@@ -7616,7 +7617,6 @@ $tK
 32CTraceMsg_CardReturnedToFountain
 32C_BaseAnimatingOverlayController
 32ISkeletonAnimationHistoryContext
-32ISteamNetworkingSocketsCallbacks
 32StoreCloseAndGoToFlopPerformance
 32StoreWaitingForServerStateChange
 33CCloud_EnumerateUserFiles_Request
@@ -7860,7 +7860,6 @@ $tK
 36CScriptPlayEnvironmentChangeModifier
 36CScriptPlayToggleImprovementEntities
 36CTraceMsg_StateBasedEffectsUpdateEnd
-36ClientSteamNetworkingSocketsCallback
 36INetworkSerializerBindingBuildFilter
 37CAttribute_ItemDynamicRecipeComponent
 37CDCGHandCardOverlapShadowRegionEntity
@@ -8557,7 +8556,7 @@ $tK
 57CScriptConfig_Set01_kRoseleafRejuvenator_CARD_PLAY_SCRIPT
 57CScriptConfig_Set01_kTheOmexeArena_GENERIC_TRIGGER_SCRIPT
 57GameToolEventSpawnEntityToolEventResult_tHookupGameSystem
-582
+585
 58CMsgClientToGCTourneyGetLimitedReplayResponse_LimitedStage
 58CMsgNotificationOfSuspiciousActivity_MultipleGameInstances
 58CScriptConfig_Set01_kActivateRavenousMass_CARD_PLAY_SCRIPT
@@ -8650,7 +8649,7 @@ $tK
 65CScriptConfig_Set01_kCloakofEndlessCarnage_GENERIC_TRIGGER_SCRIPT
 65GameToolEventToolEvent_SFMRecordingStateChanged_tHookupGameSystem
 66GameToolEventToolEvent_SFMToolActiveStateChanged_tHookupGameSystem
-678
+676
 67CScriptConfig_Set01_kActivateUnsupervisedArtillery_CARD_PLAY_SCRIPT
 69CScriptConfig_Set01_kActivateRevtelInvestments_GENERIC_TRIGGER_SCRIPT
 6C
@@ -8741,7 +8740,6 @@ $tK
 9CCallbackI22CDCGPurchaseController31MicroTxnAuthorizationResponse_tLb0EE
 9CCallbackI26CDCGDialogVariableHandlers20PersonaStateChange_tLb0EE
 9CCallbackI30CDisplayOnlyAchievementManager19UserStatsReceived_tLb0EE
-9CCallbackI30CSteamUnifiedMessageDispatcher38SteamUnifiedMessagesSendMethodResult_tLb0EE
 9CCallbackIN5GCSDK9CGCClientE20GCMessageAvailable_tLb0EE
 9CCallbackIN5GCSDK9CGCClientE23SteamServersConnected_tLb0EE
 9CCallbackIN5GCSDK9CGCClientE26SteamServersDisconnected_tLb0EE
@@ -8950,7 +8948,7 @@ $tK
 @A
 @B
 @O
-@Y>)Fdcg_localgamemomentum
+@Y>)FSteamNetworkingSockets009
 @Z@
 @keyframes
 @keyframes '%s'{
@@ -10920,7 +10918,7 @@ AboutToBright
 AboutToDim
 AbsTagType(unknown)
 Absolute maximum duration of the gold counter tick up animation.
-Accepting connection from %s, hconn=%d
+Accepting connection from %s, hconn=%u
 AccessDropDownMenu
 AccessStopColors
 AccessoryFilter
@@ -11131,9 +11129,6 @@ AllocateEntityIdentity
 AllocateResource
 Allow Interrupt
 Allow chat channels to be set to global, causing their chat to show up in other channel's tabs.
-Allow direct peer to peer connectivity with any players on the same game server. [0 = force off, 1 = force on, -1 = Engine Controlled]
-Allow direct peer to peer connectivity with any steam friends on the same game server. [0 = force off, 1 = force on, -1 = Engine Controlled]
-Allow direct peer to peer connectivity with the player running a listenserver you're connected to. And everyone connected to a listenserver you're running yourself. [0 = force off, 1 = force on, -1 = Engine Controlled]
 Allow flex animation rules to run.
 Allow redirecting the main game rendering into a texture for use within panorama.
 AllowAddonDependencies
@@ -11321,7 +11316,6 @@ Attempt to update inventory position failure: %s
 Attempt to update inventory position failure: %s.
 Attempted damage: %d (dealt: %d, final health: %d). From source: %s, type: %s
 Attempted to ConvertToCopiedData for unsupported type (%d)
-Attempted to add stats to table %s with an invalid iTableID
 Attempted to alias unknown class %s using same designer name "%s"
 Attempted to create unknown entity classname "%s"!
 Attempted to create unknown particle system type "%s"!
@@ -12972,7 +12966,6 @@ CSpeechScriptBridge::Script_GetExpressers
 CSplitScreenSlot
 CSprite
 CSpriteOriented
-CSteamUnifiedMessageDispatcher::SendMethod: Cannot invoke method without first registering listener.
 CSteamWorksGameStatsClient
 CStopwatch
 CStopwatchBase
@@ -13456,7 +13449,6 @@ CameraToggleStrategicMouse
 Can only purchase one, and you already own one
 Can't
 Can't BackUp() after failed Next().
-Can't access unified message interface. Make sure Steam is up-to-date!
 Can't add Average filter after starting
 Can't add Paeth filter after starting
 Can't add Up filter after starting
@@ -13510,6 +13502,7 @@ CancelLeagueDeckFailure
 CancelTargetSelection
 Canceled
 Candidate -- index: %d, move: %d, with score: %6.3lf
+Cannot access SDR network.  %s
 Cannot add cubemaps to %s because it is still loaded!
 Cannot allocate abstract class
 Cannot allocate buffer larger than kint32max for
@@ -13920,7 +13913,7 @@ Closing Lesson Named...
 Closing connection [%s] hconn=%d we don't recognize that connection, ignoring.
 Closing connection [%s] hconnn=%d but that user is using hconn=%d now.  Ignoring.
 Closing old connection
-Closing previous connection to %s, hconn=%d, because we have a new one for that player!  This is unusual.
+Closing previous connection to %s, hconn=%u, because we have a new one for that player!  This is unusual.
 ClothShapeCapsule
 ClothShapeList
 ClothShapeSphere
@@ -16990,7 +16983,6 @@ Funds locked by user
 Fur-lined Mantle
 Fury Swipes
 FvP11CGameObjectS0_RK8TagUnionI8TypelistIJN13CDotaCardGame14DamageAmount_tENS3_15HealingAmount_tEEEE13StrongTypedefIj13CardIDTypeTagLj0EEE
-FvP12CSceneObjectE
 FvP13CDotaCardGameP13CCardResolverRK17SpecificObjects_tE
 FvP16CDCGPassCoinViewP16CDCGPassCoinInfoE
 FvP20CDCGCardAttachEntityE
@@ -17212,7 +17204,6 @@ GetFloat(name) : returns the convar as a float. May return null if no such conva
 GetFocusChild
 GetFocusIndex
 GetFocusedChildVisibleIndex
-GetHSteamPipe
 GetHud
 GetHud called with NULL g_pHudGameSystem!
 GetInputsForScriptClass
@@ -17822,6 +17813,7 @@ IS2
 IS3
 IS4
 ISteamHTTP not available to update item schema, requesting direct data for version %08X
+ISteamNetworkingSockets::ReceiveMessagesOnConnection flagged an invalid connection? %s
 ISteamUserStats::GetAchievement failed for %s
 ISteamUserStats::GetStat failed to get component value from Steam for achievement %s
 ISteamUserStats::GetStat failed to get progress value from Steam for achievement %s
@@ -17962,7 +17954,6 @@ Incorrect IEND chunk length
 Incorrect bKGD chunk index value
 Incorrect bKGD chunk length
 Incorrect cHRM chunk length
-Incorrect data received or wrong callback result!
 Incorrect gAMA chunk length
 Incorrect hIST chunk length
 Incorrect oFFs chunk length
@@ -22311,7 +22302,6 @@ Received client welcome from GC.
 Received full up to date cache for %s but had lingering partial cache
 Received goodbye for unrecognized game
 Received k_EMsgGameServerToClientGoodbye from server for unknown game (%s, %llu, %u)
-Received method callback. Handle: %llu. Context: %llu. EResult: %d. Response Size: %d.
 Received partial cache for %s from system %d (%d dependencies, sync version %llu)
 Received server from server
 Received server welcome from GC.
@@ -22807,8 +22797,8 @@ STEAMMUSIC_INTERFACE_VERSION001
 STEAMPARENTALSETTINGS_INTERFACE_VERSION001
 STEAMREMOTESTORAGE_INTERFACE_VERSION014
 STEAMSCREENSHOTS_INTERFACE_VERSION003
-STEAMUGC_INTERFACE_VERSION012
-STEAMUSERSTATS_INTERFACE_VERSION011
+STEAMUGC_INTERFACE_VERSION015
+STEAMUSERSTATS_INTERFACE_VERSION012
 STEAMVIDEO_INTERFACE_V002
 STX
 SUB
@@ -23792,36 +23782,30 @@ SteamAPI_UnregisterCallResult
 SteamAPI_UnregisterCallback
 SteamAudio001
 SteamChatButton
-SteamClient018
-SteamController007
+SteamClient020
+SteamController008
 SteamFriends017
 SteamGameCoordinator001
-SteamGameServer012
-SteamGameStats001
+SteamGameServer013
 SteamID %llu %s
+SteamInput003
 SteamInternal_ContextInit
 SteamInternal_CreateInterface
+SteamInternal_FindOrCreateUserInterface
 SteamLeaderboardUpdated
 SteamMatchGameSearch001
 SteamMatchMaking009
 SteamMatchMakingServers002
-SteamNetworking005
-SteamNetworkingSockets
-SteamNetworkingSockets()->ReceiveMessagesOnConnection flagged an invalid connection? %s
-SteamNetworkingUtils
+SteamNetworking006
 SteamPad
 SteamParties002
 SteamToursHost001
-SteamUnifiedMessages
-SteamUser020
-SteamUtils009
+SteamUser021
+SteamUtils010
 SteamVRController
 SteampadGuideButton
 SteampadGuideButtonUp
-Steamworks Stats: %s Ending %s session id: %llu
-Steamworks Stats: %s Ending CLIENT session id: %llu
 Steamworks Stats: %s Received %s session id: %llu
-Steamworks Stats: %s Requesting session id.
 Steamworks Stats: %s session id not available.
 Steel Reinforcement
 Step: %6.3f [ms]
@@ -28988,6 +28972,7 @@ dcg_local_tower_shift_pitch
 dcg_local_tower_shift_x
 dcg_local_tower_shift_y
 dcg_localchangemomentum
+dcg_localgamemomentum
 dcg_localgamemomentum %f
 dcg_locallanemomentum
 dcg_locallanemomentum %f
@@ -32074,7 +32059,6 @@ libpng version 1.5.2 - March 31, 2011Copyright (c) 1998-2011 Glenn Randers-Pehrs
 libpthread.so.0
 libstdc++.so.6
 libsteam_api.so
-libsteamnetworkingsockets.so
 libtier0.so
 libuuid.so.1
 libv8.so
@@ -35657,9 +35641,6 @@ oyster
 p
 p'
 p(
-p2p_lockdown_game_server_trust_everyone
-p2p_lockdown_game_server_trust_friends
-p2p_lockdown_game_server_trust_listenserver_host
 p2p_ping
 p2p_ping could not convert "%s" to a CPeerToPeerAddress
 p2p_ping could not ping "%s" because they are an unknown peer
@@ -41192,7 +41173,6 @@ steammessages_publishedfile.steamworkssdk.pb.cc
 steammessages_publishedfile.steamworkssdk.proto
 steammessages_unified_base.steamworkssdk.pb.cc
 steammessages_unified_base.steamworkssdk.proto
-steamunifiedmessagedispatcher.cpp
 steamworks_sessionid_client
 steamworks_sessionid_server
 steel

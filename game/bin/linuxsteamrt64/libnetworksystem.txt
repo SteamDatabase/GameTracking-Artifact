@@ -59,29 +59,12 @@
  RandomInt
  RandomSeed
  RegisterStringToken
- SteamAPI_GetHSteamPipe
  SteamAPI_GetHSteamUser
- SteamAPI_RegisterCallResult
- SteamAPI_RegisterCallback
- SteamAPI_UnregisterCallResult
- SteamAPI_UnregisterCallback
- SteamDatagramClient_Init_InternalV7
- SteamDatagramClient_Internal_SteamAPIKludge
- SteamDatagramClient_Kill
- SteamDatagramClient_SetLauncher
- SteamDatagramServer_Init_Internal
- SteamDatagramServer_Kill
- SteamGameServerNetworkingMessages
- SteamGameServerNetworkingSockets
- SteamGameServer_GetHSteamPipe
  SteamGameServer_GetHSteamUser
  SteamInternal_ContextInit
  SteamInternal_CreateInterface
- SteamNetworkingIdentity_ToString
- SteamNetworkingMessages
- SteamNetworkingSockets
- SteamNetworkingSockets_SetDebugOutputFunction
- SteamNetworkingUtils
+ SteamInternal_FindOrCreateGameServerInterface
+ SteamInternal_FindOrCreateUserInterface
  T BinaryProperties_GetValue
  T CreateInterface
  T GetResourceManifestCount

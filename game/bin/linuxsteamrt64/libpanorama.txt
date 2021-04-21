@@ -154,12 +154,12 @@
  SDL_ShowMessageBox
  SDL_ShowSimpleMessageBox
  SDL_free
- SteamAPI_GetHSteamPipe
  SteamAPI_GetHSteamUser
  SteamAPI_RegisterCallResult
  SteamAPI_UnregisterCallResult
  SteamInternal_ContextInit
  SteamInternal_CreateInterface
+ SteamInternal_FindOrCreateUserInterface
  T BinaryProperties_GetValue
  T CreateInterface
  T CreatePanoramaUIEngineInternal

@@ -112,10 +112,8 @@
  LoggingSystem_Log
  LoggingSystem_Log(int, LoggingSeverity_t, Color, char const*, ...)
  LoggingSystem_Log(int, LoggingSeverity_t, LeafCodeInfo_t const&, char const*, ...)
- LoggingSystem_Log(int, LoggingSeverity_t, LoggingMetaData_t const*, Color, char const*, ...)
  LoggingSystem_Log(int, LoggingSeverity_t, LoggingMetaData_t const*, char const*, ...)
  LoggingSystem_LogDirect
- LoggingSystem_LogDirect(int, LoggingSeverity_t, Color, char const*)
  LoggingSystem_PopLoggingState
  LoggingSystem_PushLoggingState
  LoggingSystem_RegisterBackdoorLoggingListener
@@ -258,7 +256,6 @@
  StackStats_EnumerateRegisteredInstances
  StackTools_EnumerateKnownLoadedModules
  StackTools_VerifyLoadedModuleMappings
- SteamAPI_GetHSteamPipe
  SteamAPI_GetHSteamUser
  SteamAPI_Init
  SteamAPI_RegisterCallResult
@@ -271,12 +268,13 @@
  SteamAPI_UnregisterCallResult
  SteamAPI_UnregisterCallback
  SteamAPI_UseBreakpadCrashHandler
- SteamGameServer_GetHSteamPipe
  SteamGameServer_GetHSteamUser
  SteamGameServer_RunCallbacks
  SteamGameServer_Shutdown
  SteamInternal_ContextInit
  SteamInternal_CreateInterface
+ SteamInternal_FindOrCreateGameServerInterface
+ SteamInternal_FindOrCreateUserInterface
  SteamInternal_GameServer_Init
  T BinaryProperties_GetValue
  T CreateInterface
